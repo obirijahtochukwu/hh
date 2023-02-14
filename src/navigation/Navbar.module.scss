@@ -1,0 +1,31 @@
+@import "../styles/Theme.scss";
+
+.activeLink {
+  color: $black;
+  font-size: 110%;
+  font-weight: 600;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0.29em;
+  left: 0.5em;
+  font-size: 1.3em;
+  color: $text-color;
+  transform: scale(0.8);
+}
+
+.input {
+  padding-left: 2.6em;
+  padding-right: 1.6em;
+  border: 1px solid $transparent;
+  box-shadow:1px 1px 2px 0 $transparent, -3px -3px 7px 0 rgb(255, 255, 255, .1);
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.bar {
+  height: 40px;
+  width: 1px;
+  background-color: $transparent;
+}

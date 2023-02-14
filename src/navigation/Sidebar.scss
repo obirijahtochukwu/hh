@@ -1,0 +1,58 @@
+@import "../styles/Theme.scss";
+.side_nav {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: $transparent-color;
+  transition: all 0.1s ease-in-out;
+  transform: translate(-100%);
+}
+
+.side_nav.show {
+  transform: translate(0);
+}
+
+.side_nav_content {
+  height: 100%;
+  width: 280px;
+  border-right: 1px dotted;
+  position: relative;
+}
+
+.bar_icon {
+  color: $blue;
+  font-size: 1.45rem;
+}
+.bottom_icon {
+  color: $btn-color;
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.active_link {
+  background-color: $btn-color;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.logo {
+  color: $blue;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: cursive;
+}
+
+.close_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
+  border-radius: 0 10px 0 10px;
+}
+.close_btn .X_btn {
+  font-size: 1.8rem;
+  color: $red;
+}

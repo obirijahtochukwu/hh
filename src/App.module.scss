@@ -1,0 +1,17 @@
+@import "./styles/Theme.scss";
+.justifyContentBetween {
+  justify-content: space-between;
+}
+.justifyContentAround {
+  justify-content: space-around;
+}
+.justifyContentCenter {
+  justify-content: center;
+}
+.alignItemsCenter {
+  align-items: center;
+}
+.textColor {
+  color: $text-color;
+  font-size: 16.5px;
+}
