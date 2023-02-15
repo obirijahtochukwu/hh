@@ -1,14 +1,35 @@
 @import '../../styles//Theme.scss';
 
 .bg {
+  position: relative;
   background-color: $transparent;
   width: 100%;
   height: 120px;
   border-radius: 3px;
 }
+.bg img {
+  width: 42.89px;
+  height: 43.02px;
+}
+
+.col:nth-child(1) .bg {
+  background-color: rgb(46, 198, 46, .15);
+}
+.col:nth-child(2) .bg {
+  background-color: rgb(245, 215, 46, .15);
+}
+.col:nth-child(3) .bg {
+  background-color: rgb(46, 196, 218, .15);
+}
+.col:nth-child(4) .bg {
+  background-color: rgb(167, 76, 201, .15);
+}
+.col:nth-child(5) .bg {
+  background-color: rgb(239, 79, 173, .2);
+}
 
 .title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: capitalize;
   text-align: center;
@@ -29,7 +50,7 @@
   color: $green;
   background-color: rgb(0, 128, 0, 0.2);
 text-transform: uppercase;
-font-weight: 600;
+font-weight: 700;
 font-size: 12px;
   border-radius: 6px;
 }
@@ -65,8 +86,8 @@ font-size: 12px;
 .btn {
   cursor: pointer;
   width: fit-content;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   background-color: $transparent;
   border-radius: 4px;
 }
@@ -83,7 +104,8 @@ font-size: 12px;
 .text {
   text-transform: capitalize;
   color: $text-color;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .img {

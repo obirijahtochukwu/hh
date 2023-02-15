@@ -4,6 +4,7 @@ import { FaSistrix, FaBell, FaUserAlt, FaCamera, FaCog } from "react-icons/fa";
 //import { links } from "../db";
 import nav from "./Navbar.module.scss";
 import app from "../App.module.scss";
+import dashboard from '../views/dashboard/index.module.scss'
 
 function Navbar() {
 
@@ -13,13 +14,20 @@ function Navbar() {
         <div className="">
           <img src="./media/Logo/Dutch0x Logo@2x.png" alt="" width={'150px'}/>
         </div>
+        <div className="text-center">
         <div className={`${nav.activeLink}`}>Dashbord</div>
-        <div className={`${app.textColor}`}>NFT Management</div>
-        <div className={`${app.textColor}`}>MarketPlace </div>
-        <div className={`${app.textColor}`}>Learn </div>
-        <div className="col-3 position-relative">
+        </div>
+        <div className={`${app.textColor} ${nav.link}`}>NFT Management</div>
+        <div className={`${app.textColor} ${nav.link}`}>MarketPlace </div>
+        <div className={`${app.textColor} ${nav.link}`}>Learn </div>
+        <div className="col-3 position-relative d-none d-lg-block">
           <FaSistrix className={`${nav.searchIcon}`}/>
-          <input type="text" name="name" autoComplete placeholder="find NFT's, collections, or holders" id="" className={`${nav.input} w-100 py-1`}/>
+          <input type="text" name="name" placeholder="find holders" id="" className={`${nav.input} w-100 py-1`}/>
+          <div className={`${nav.slashIcon} px-2`}>/</div>
+        </div>
+        <div className={`${dashboard.badge} d-lg-flex align-items-center px-2 py-1 d-none `}>
+          <div className={`${dashboard.circle}`}></div>
+          <small className=''>status</small>
         </div>
         <div className="d-none d-lg-block">
           <FaBell/>
@@ -30,7 +38,7 @@ function Navbar() {
         <div className="d-none d-lg-block">
           <FaUserAlt />
         </div>
-        <div className={`${nav.bar}`}></div>
+        <div className={`${nav.bar} d-none d-lg-block`}></div>
         <div className="d-none d-lg-block">
           <FaCog />
         </div>
