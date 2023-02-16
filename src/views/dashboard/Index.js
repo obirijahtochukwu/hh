@@ -104,9 +104,9 @@ export default function Index() {
               <div className="col-12">
                 <div className={`${style.lightTitle}`}>activities</div>
                 <div
-                  className={`${style.cardBorder} px-3 py-4 mt-2 row justify-content-between align-items-scretch`}
+                  className={`${style.cardBorder} px-3 py-3 mt-2 row justify-content-between align-items-scretch`}
                 >
-                  <div className="col-8">
+                  <div className="col-9">
                     <div className="d-flex align-items-center">
                       <div className={`${style.smallText}`}>Airdrop</div>
                       <div
@@ -131,7 +131,7 @@ export default function Index() {
                         NFT id
                       </small>
                     </div>
-                    <div className="d-flex align-items-center mt-1 mb-2">
+                    <div className="d-flex align-items-center">
                       <b
                         style={{
                           marginRight: "4px",
@@ -205,7 +205,7 @@ export default function Index() {
                       </b>
                       <div className={`${style.text}`}>2</div>
                     </div>
-                    <div className={`${style.volume} my-3`}></div>
+                    <div className={`${style.volume} my-2`}></div>
                     <div className="d-flex align-items-center">
                       <div className={`${style.btn} px-3 py-2`}>
                         More Details
@@ -219,28 +219,32 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-4">
+                  <div className="col-3">
                     <div className={`${style.img}`}></div>
                   </div>
                 </div>
               </div>
               <div className="col-12 mt-4">
                 <div
-                  className={`${style.cardBorder} px-3 py-4 mt-2 row justify-content-between align-items-scretch`}
+                  className={`${style.cardBorder} px-3 py-3 mt-2 row justify-content-between align-items-scretch`}
                 >
-                  <div className="col-8">
+                  <div className="col-9">
                     <div className="d-flex align-items-center">
                       <div className={`${style.smallText}`}>Airdrop</div>
                       <div
-                        className={`${style.badge} d-flex align-items-center px-2 py-1 mx-2 bg-success`}
+                        className={`${style.badge} d-flex align-items-center px-2 mx-2 bg-success `}
                       >
                         <div className={`${style.circle}  bg-white `}></div>
+
                         <div className="text-white">runnig</div>
                       </div>
                     </div>
                     <div className={`${style.text} mt-2`}>Collection Name</div>
                     <div className="d-flex align-items-center">
-                      <div style={{ fontSize: "28px", fontWeight: "700" }}>
+                      <div
+                        className={`${style.titleTwo}`}
+                        style={{ fontSize: "28px", fontWeight: "700" }}
+                      >
                         NFT Name
                       </div>
                       <small
@@ -249,7 +253,7 @@ export default function Index() {
                         NFT id
                       </small>
                     </div>
-                    <div className="d-flex align-items-center mt-1 mb-2">
+                    <div className="d-flex align-items-center">
                       <b
                         style={{
                           marginRight: "4px",
@@ -323,7 +327,7 @@ export default function Index() {
                       </b>
                       <div className={`${style.text}`}>2</div>
                     </div>
-                    <div className={`${style.volume} my-3`}></div>
+                    <div className={`${style.volume} my-2`}></div>
                     <div className="d-flex align-items-center">
                       <div className={`${style.btn} px-3 py-2`}>
                         More Details
@@ -337,7 +341,7 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-4">
+                  <div className="col-3">
                     <div className={`${style.img}`}></div>
                   </div>
                 </div>
