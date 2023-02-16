@@ -39,8 +39,8 @@ function Navbar() {
         <div
           className={`${dashboard.badge} d-lg-flex align-items-center px-2 py-1 d-none `}
         >
-          <div className={`${dashboard.circle}`}></div>
-          <small className="">status</small>
+          <div className={`${dashboard.circle} bg-white`}></div>
+          <small className="text-white">status</small>
         </div>
         <div className={`${nav.icon} d-none d-lg-block`}>
           <FaBell />

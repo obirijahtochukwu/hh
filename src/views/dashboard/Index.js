@@ -113,6 +113,7 @@ export default function Index() {
                         className={`${style.badge} d-flex align-items-center px-2 mx-2 bg-success `}
                       >
                         <div className={`${style.circle}  bg-white `}></div>
+
                         <div className="text-white">runnig</div>
                       </div>
                     </div>

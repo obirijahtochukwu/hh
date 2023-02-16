@@ -3,8 +3,7 @@
 .bg {
   position: relative;
   background-color: $transparent;
-  width: 100%;
-  height: 120px;
+  height: 151px !important;
   border-radius: 3px;
 }
 .bg img {
@@ -49,7 +48,7 @@
 
 .badge {
   color: $green;
-  background-color: rgb(0, 128, 0, 0.2);
+  background-color: #2ec62e !important;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
@@ -106,7 +105,7 @@
   text-transform: capitalize;
   color: $text-color;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .img {
@@ -117,7 +116,11 @@
 }
 
 .smallText {
-  font-size: 1rem;
+  font-size: 0.875rem;
+}
+h5 {
+  font-weight: 500;
+  font-size: 20px;
 }
 
 @media (min-width: 1320px) {
@@ -137,23 +140,21 @@
   }
   .title {
     margin-top: 10px !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
   .badge {
     font-size: 12px !important;
-    padding: 10px 15px !important;
+    padding: 5px 10px !important;
   }
   .lightTitle {
-    font-size: 30px !important;
-  }
-  .text {
-    font-size: 16px !important;
+    font-size: 24px !important;
   }
   .titleTwo {
-    font-size: 1.76rem !important;
+    font-size: 1.75rem !important;
   }
   b {
-    font-size: 17px !important;
+    font-weight: 700;
+    font-size: 14px !important;
   }
   .btn {
     font-size: 16px !important;
@@ -175,28 +176,29 @@
     width: 58px !important;
   }
   .title {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
   .badge {
     font-size: 16px !important;
     padding: 10px 18px !important;
   }
   .lightTitle {
-    font-size: 34px !important;
+    font-size: 26px !important;
   }
   .text {
-    font-size: 21px !important;
+    font-size: 1rem !important;
   }
   .smallText {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .titleTwo {
-    font-size: 2.6rem !important;
+    font-size: 2rem !important;
   }
   b {
-    font-size: 20px !important;
+    font-weight: 700;
+    font-size: 1rem !important;
   }
   .btn {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 }

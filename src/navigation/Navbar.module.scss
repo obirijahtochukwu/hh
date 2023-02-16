@@ -69,13 +69,13 @@
 
 @media (min-width: 1320px) {
   .activeLink {
-    font-size: 20px;
+    font-size: 16px;
   }
   .link {
-    font-size: 19px !important;
+    font-size: 16px !important;
   }
   .img {
-    width: 140px !important;
+    width: 130px !important;
   }
   .input {
     padding: 3px 30px 5px 40px;
@@ -92,19 +92,19 @@
     transform: scale(0.8) !important;
   }
   .icon {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1720px) {
   .activeLink {
-    font-size: 30px;
+    font-size: 20px;
   }
   .link {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
   .img {
-    width: 250px !important;
+    width: 150px !important;
   }
   .input {
     padding: 8px 30px 8px 55px;
@@ -121,6 +121,6 @@
     transform: scale(1.1) !important;
   }
   .icon {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
