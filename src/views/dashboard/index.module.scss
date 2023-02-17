@@ -1,14 +1,18 @@
 @import "../../styles//Theme.scss";
+:root {
+  --current-width: 100vw;
+  --ideal-width: 1600;
+}
 
 .bg {
   position: relative;
   background-color: $transparent;
-  height: 151px !important;
+  height: calc(151 * (var(--current-width) / var(--ideal-width))) !important;
   border-radius: 3px;
 }
 .bg img {
-  width: 42.89px;
-  height: 43.02px;
+  width: calc(42.89 * (var(--current-width) / var(--ideal-width)));
+  height: calc(43.02 * (var(--current-width) / var(--ideal-width)));
 }
 
 .col:nth-child(1) .bg {
@@ -28,14 +32,14 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: calc(16 * (var(--current-width) / var(--ideal-width)));
   font-weight: 700;
   text-transform: capitalize;
   text-align: center;
 }
 
 .lightTitle {
-  font-size: 24px;
+  font-size: calc(24 * (var(--current-width) / var(--ideal-width)));
   font-weight: 400;
   text-transform: capitalize;
 }
@@ -43,7 +47,7 @@
 .cardBorder {
   box-shadow: 3px 3px 5px 0 $transparent,
     -3px -3px 5px 0 rgba(255, 254, 254, 0.8);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .badge {
@@ -52,7 +56,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 .circle {
@@ -66,7 +70,7 @@
 .volume {
   position: relative;
   width: 100%;
-  height: 6px;
+  height: calc(6 * (var(--current-width) / var(--ideal-width)));
   background-color: $transparent;
   border-radius: 16px;
 }
@@ -77,7 +81,7 @@
   top: 0;
   left: 0;
   width: 40%;
-  height: 6px;
+  height: calc(6 * (var(--current-width) / var(--ideal-width)));
   border-radius: 16px;
 
   background-color: $orange;
@@ -86,7 +90,7 @@
 .btn {
   cursor: pointer;
   width: fit-content;
-  font-size: 16px;
+  font-size: calc(16 * (var(--current-width) / var(--ideal-width)));
   font-weight: 400;
   background-color: $transparent;
   border-radius: 4px;
@@ -94,17 +98,17 @@
 
 .check {
   cursor: pointer;
-  height: 16px;
-  width: 16px;
+  height: calc(16 * (var(--current-width) / var(--ideal-width)));
+  width: calc(16 * (var(--current-width) / var(--ideal-width)));
   border: 2px solid $transparent;
   border-radius: 4px;
-  margin-left: 16px;
+  margin-left: calc(16 * (var(--current-width) / var(--ideal-width)));
 }
 
 .text {
   text-transform: capitalize;
   color: $text-color;
-  font-size: 14px;
+  font-size: calc(14 * (var(--current-width) / var(--ideal-width)));
   font-weight: 400;
 }
 
@@ -116,89 +120,40 @@
 }
 
 .smallText {
-  font-size: 0.875rem;
+  font-size: calc(14 * (var(--current-width) / var(--ideal-width)));
 }
 h5 {
   font-weight: 500;
-  font-size: 20px;
+  font-size: calc(20 * (var(--current-width) / var(--ideal-width)));
 }
 
-@media (min-width: 1320px) {
-  .bg {
-    position: relative;
-    width: 100%;
-    height: 170px;
-    border-radius: 3px;
-  }
-  .iconSize {
-    height: 55px !important;
-    width: 53px !important;
-  }
-  .iconSize2 {
-    height: 38px !important;
-    width: 55px !important;
-  }
-  .title {
-    margin-top: 10px !important;
-    font-size: 16px !important;
-  }
-  .badge {
-    font-size: 12px !important;
-    padding: 5px 10px !important;
-  }
-  .lightTitle {
-    font-size: 24px !important;
-  }
-  .titleTwo {
-    font-size: 1.75rem !important;
-  }
-  b {
-    font-weight: 700;
-    font-size: 14px !important;
-  }
-  .btn {
-    font-size: 16px !important;
-  }
+.littleText {
+  font-size: calc(14 * (var(--current-width) / var(--ideal-width))) !important;
 }
-@media (min-width: 1720px) {
-  .bg {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    border-radius: 3px;
-  }
+
+@media (min-width: 10px) {
   .iconSize {
-    height: 60px !important;
-    width: 58px !important;
+    height: calc(55 * (var(--current-width) / var(--ideal-width))) !important;
+    width: calc(53 * (var(--current-width) / var(--ideal-width))) !important;
   }
   .iconSize2 {
-    height: 40px !important;
-    width: 58px !important;
-  }
-  .title {
-    font-size: 20px !important;
-  }
-  .badge {
-    font-size: 16px !important;
-    padding: 10px 18px !important;
-  }
-  .lightTitle {
-    font-size: 26px !important;
-  }
-  .text {
-    font-size: 1rem !important;
-  }
-  .smallText {
-    font-size: 1rem;
+    height: calc(33 * (var(--current-width) / var(--ideal-width))) !important;
+    width: calc(55 * (var(--current-width) / var(--ideal-width))) !important;
   }
   .titleTwo {
-    font-size: 2rem !important;
+    font-size: calc(
+      28 * (var(--current-width) / var(--ideal-width))
+    ) !important;
   }
   b {
     font-weight: 700;
-    font-size: 1rem !important;
+    font-size: calc(
+      14 * (var(--current-width) / var(--ideal-width))
+    ) !important;
   }
   .btn {
-    font-size: 18px !important;
+    font-size: calc(
+      16 * (var(--current-width) / var(--ideal-width))
+    ) !important;
   }
 }

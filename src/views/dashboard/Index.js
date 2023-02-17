@@ -119,17 +119,12 @@ export default function Index() {
                     </div>
                     <div className={`${style.text} mt-2`}>Collection Name</div>
                     <div className="d-flex align-items-center">
+                      <div className={`${style.titleTwo}`}>NFT Name</div>
                       <div
-                        className={`${style.titleTwo}`}
-                        style={{ fontSize: "28px", fontWeight: "700" }}
-                      >
-                        NFT Name
-                      </div>
-                      <small
-                        className={`${style.cardBorder} rounded px-2 mx-2`}
+                        className={`${style.cardBorder} ${style.littleText} rounded px-2 mx-2`}
                       >
                         NFT id
-                      </small>
+                      </div>
                     </div>
                     <div className="d-flex align-items-center">
                       <b
@@ -241,14 +236,9 @@ export default function Index() {
                     </div>
                     <div className={`${style.text} mt-2`}>Collection Name</div>
                     <div className="d-flex align-items-center">
-                      <div
-                        className={`${style.titleTwo}`}
-                        style={{ fontSize: "28px", fontWeight: "700" }}
-                      >
-                        NFT Name
-                      </div>
+                      <div className={`${style.titleTwo}`}>NFT Name</div>
                       <small
-                        className={`${style.cardBorder} rounded px-2 mx-2`}
+                        className={`${style.cardBorder} ${style.littleText} rounded px-2 mx-2`}
                       >
                         NFT id
                       </small>
@@ -363,7 +353,7 @@ export default function Index() {
                     <FaChevronRight />
                   </b>
                 </div>
-                <div className={`${style.cardBorder} px-3 py-4 mt-5`}>
+                <div className={`${style.cardBorder} px-3 py-3 mt-4`}>
                   <h5>NFTs</h5>
                   <div className="d-flex justify-content-between">
                     <div className={`${style.text}`}>NFT items</div>
