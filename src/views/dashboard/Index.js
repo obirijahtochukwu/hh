@@ -1,436 +1,302 @@
-import React from "react";
-import { FaChevronRight } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaBars, FaBtc, FaChevronRight, FaTimes } from "react-icons/fa";
 import style from "./index.module.scss";
 
 export default function Index() {
+  const ref = useRef();
+  const reff = useRef();
+  const [current, setCurrent] = useState("15");
+  const [active, setActive] = useState("17");
+  const [sidebar, setSidebar] = useState(false);
+  const [wallet, setWallet] = useState(false);
+  const carousel = [
+    { img: "/media/1.png", x: "0" },
+    { img: "/media/2.png", x: "15" },
+    { img: "/media/3.png", x: "35" },
+    { img: "/media/4.png", x: "55" },
+    { img: "/media/5.png", x: "70" },
+  ];
+  const carousel2 = [
+    { img: "/media/1.png", x: "0" },
+    { img: "/media/2.png", x: "17" },
+    { img: "/media/3.png", x: "36.7" },
+    { img: "/media/4.png", x: "57" },
+    { img: "/media/5.png", x: "74" },
+  ];
+  useEffect(() => {
+    ref.current.style.transition = `0.4s`;
+    reff.current.style.transition = `0.4s`;
+    ref.current.style.transform = `translateX(-${current}%)`;
+    reff.current.style.transform = `translateX(-${active}%)`;
+  }, [current, active]);
+
   return (
-    <div className="">
+    <div className={`${style.body}`}>
+      {/*NAVBAR SECTION*/}
+      <div className={`${style.navBg}`}></div>
+      <FaBars
+        className={`${style.sideBarIcon} d-sm-none cursor`}
+        onClick={() => setSidebar(true)}
+      />
+      <div className={`${style.navLogoContainer} d-sm-block`}>
+        <img src="/media/Vector.png" className={`${style.navLogo}`} />
+        <div className={`${style.navLogoBadge}`} />
+        <img src="/media/Vector (2).png" className={`${style.navLogo2}`} />
+        <div className={`${style.navLogo2Badge}`} />
+        <img src="/media/Vector (3).png" className={`${style.navLogo3}`} />
+        <div className={`${style.navLogo3Badge}`} />
+        <img src="/media/Vector (1).png" className={`${style.navLogo4}`} />
+        <div className={`${style.navLogo4Badge} d-sm-block`} />
+        <div className={`${style.nav1} d-none d-sm-block`}>Vibe Token</div>
+        <div className={`${style.nav2} d-none d-sm-block`}>about</div>
+        <div className={`${style.nav3} d-none d-sm-block`}>faq</div>
+      </div>
+      {/*SIDEBAR SECTION*/}
       <div
-        style={{ borderBottom: "1px solid rgba(0, 0, 0, .2)" }}
-        className="container-fluid bg-white py-4 px-xl-5"
+        className={
+          sidebar
+            ? `${style.sideBarContainer} ${style.show} d-sm-none`
+            : `${style.sideBarContainer} d-sm-none`
+        }
       >
-        {/*FIRST SECTION*/}
-        <div className="row">
-          <div className={`${style.col} col`}>
-            <div
-              className={`${style.bg} mb-1 d-flex justify-content-center align-items-center w-100`}
-            >
-              <img
-                style={{ transform: "translate(0%, -30%)", height: "35px" }}
-                src="./media/Logo/Rectangle 149 (1).png"
-                alt=""
-                className={`${style.iconSize2}`}
-              />
-              <img
-                style={{ transform: "translate(-40%, 30%)", height: "35px" }}
-                src="./media/Logo/Rectangle 149 (1).png"
-                alt=""
-                className={`${style.iconSize2}`}
-              />
-            </div>
-            <div className={`${style.title}`}>create nft</div>
+        <div
+          className={
+            sidebar ? `${style.sideBar} ${style.show}` : `${style.sideBar}`
+          }
+        >
+          <div className={`${style.navLogoContainer} d-sm-block`}>
+            <img src="/media/Vector.png" className={`${style.navLogo}`} />
+            <div className={`${style.navLogoBadge}`} />
+            <img src="/media/Vector (2).png" className={`${style.navLogo2}`} />
+            <div className={`${style.navLogo2Badge}`} />
+            <img src="/media/Vector (3).png" className={`${style.navLogo3}`} />
+            <div className={`${style.navLogo3Badge}`} />
+            <img src="/media/Vector (1).png" className={`${style.navLogo4}`} />
+            <div className={`${style.navLogo4Badge} d-sm-block`} />
+            <div className={`${style.nav1} d-none d-sm-block`}>Vibe Token</div>
+            <div className={`${style.nav2} d-none d-sm-block`}>about</div>
+            <div className={`${style.nav3} d-none d-sm-block`}>faq</div>
           </div>
-          <div className={`${style.col} col`}>
-            <div
-              className={`${style.bg} mb-1 d-flex justify-content-center align-items-center w-100`}
-            >
-              <img
-                src="./media/Logo/Rectangle 149.png"
-                alt=""
-                className={`${style.iconSize}`}
-              />
-              <img
-                style={{ transform: "translate(-40%)" }}
-                src="./media/Logo/Rectangle 149.png"
-                alt=""
-                className={`${style.iconSize}`}
-              />
-            </div>
-            <div className={`${style.title}`}>find holders</div>
+          <FaTimes
+            className={`${style.sideBarIcon} d-sm-none cursor`}
+            onClick={() => setSidebar(false)}
+          />
+          <div className={`${style.sidebarLink1}  d-sm-block cursor`}>
+            Vibe Token
           </div>
-          <div className={`${style.col} col`}>
-            <div
-              className={`${style.bg} mb-1 d-flex justify-content-center align-items-center w-100`}
-            >
-              <img
-                src="./media/Logo/Rectangle 144.png"
-                alt=""
-                className={`${style.iconSize}`}
-              />
-            </div>
-            <div className={`${style.title}`}>airdrops</div>
+          <div className={`${style.sidebarLink2}  d-sm-block cursor`}>
+            about
           </div>
-          <div className={`${style.col} col`}>
+          <div className={`${style.sidebarLink3}  d-sm-block cursor`}>faq</div>
+          <div className={`${style.sidebarWallet}`}>
             <div
-              className={`${style.bg} mb-1 d-flex justify-content-center align-items-center w-100`}
+              className={`${style.sidebarWalletText}`}
+              onClick={() => setWallet(true)}
             >
-              <img
-                style={{ transform: "translate(35%, -50%)", height: "22px" }}
-                src="./media/Logo/Rectangle 145.png"
-                alt=""
-                className={`${style.iconSize2}`}
-              />
-              <img
-                style={{
-                  transform: "translate(-35%, 60%) rotate(180deg)",
-                  height: "22px",
-                }}
-                src="./media/Logo/Rectangle 145.png"
-                alt=""
-                className={`${style.iconSize2}`}
-              />
+              Connect wallet
             </div>
-            <div className={`${style.title}`}>trade-in</div>
-          </div>
-          <div className={`${style.col} col`}>
-            <div
-              className={`${style.bg} mb-1 d-flex justify-content-center align-items-center w-100`}
-            >
-              <img
-                src="./media/Logo/Polygon 1.png"
-                alt=""
-                className={`${style.iconSize}`}
-              />
-            </div>
-            <div className={`${style.title}`}>sales</div>
           </div>
         </div>
       </div>
-      {/*SECOND SCTION*/}
-      <div className="container-fluid">
-        <div className="row px-xl-5 py-5 justify-content-center">
-          <div className="col-md-11 col-lg-9">
-            <div className="row">
-              <div className="col-12">
-                <div className={`${style.lightTitle}`}>activities</div>
-                <div
-                  className={`${style.cardBorder} px-3 py-3 mt-2 row justify-content-between align-items-scretch`}
-                >
-                  <div className="col-9">
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.smallText}`}>Airdrop</div>
-                      <div
-                        className={`${style.badge} d-flex align-items-center px-2 mx-2 bg-success `}
-                      >
-                        <div className={`${style.circle}  bg-white `}></div>
 
-                        <div className="text-white">runnig</div>
-                      </div>
-                    </div>
-                    <div className={`${style.text} mt-2`}>Collection Name</div>
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.titleTwo}`}>NFT Name</div>
-                      <div
-                        className={`${style.cardBorder} ${style.littleText} rounded px-2 mx-2`}
-                      >
-                        NFT id
-                      </div>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Start
-                      </b>
-                      <div className={`${style.text}`}>
-                        {" "}
-                        2022-09-13 08:57:15
-                      </div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Duration{" "}
-                      </b>
-                      <div className={`${style.text}`}>00:02:07</div>
-                    </div>
-                    <div
-                      style={{ fontSize: "15px" }}
-                      className="d-flex align-items-center"
-                    >
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Volume
-                      </b>
-                      <div className={`${style.text}`}>100</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Success{" "}
-                      </b>
-                      <div className={`${style.text}`}>44</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Processing{" "}
-                      </b>
-                      <div className={`${style.text}`}>8</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Failed
-                      </b>
-                      <div className={`${style.text}`}>2</div>
-                    </div>
-                    <div className={`${style.volume} my-2`}></div>
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.btn} px-3 py-2`}>
-                        More Details
-                      </div>
-                      <div className={`${style.btn} px-3 py-2 mx-2`}>
-                        Cancel
-                      </div>
-                      <div className={`${style.check}`}></div>
-                      <div className={`${style.text} mx-2`}>
-                        recieve report on email
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className={`${style.img}`}></div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 mt-4">
-                <div
-                  className={`${style.cardBorder} px-3 py-3 mt-2 row justify-content-between align-items-scretch`}
-                >
-                  <div className="col-9">
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.smallText}`}>Airdrop</div>
-                      <div
-                        className={`${style.badge} d-flex align-items-center px-2 mx-2 bg-success `}
-                      >
-                        <div className={`${style.circle}  bg-white `}></div>
-
-                        <div className="text-white">runnig</div>
-                      </div>
-                    </div>
-                    <div className={`${style.text} mt-2`}>Collection Name</div>
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.titleTwo}`}>NFT Name</div>
-                      <small
-                        className={`${style.cardBorder} ${style.littleText} rounded px-2 mx-2`}
-                      >
-                        NFT id
-                      </small>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Start
-                      </b>
-                      <div className={`${style.text}`}>
-                        {" "}
-                        2022-09-13 08:57:15
-                      </div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Duration{" "}
-                      </b>
-                      <div className={`${style.text}`}>00:02:07</div>
-                    </div>
-                    <div
-                      style={{ fontSize: "15px" }}
-                      className="d-flex align-items-center"
-                    >
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Volume
-                      </b>
-                      <div className={`${style.text}`}>100</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Success{" "}
-                      </b>
-                      <div className={`${style.text}`}>44</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Processing{" "}
-                      </b>
-                      <div className={`${style.text}`}>8</div>
-                      <div className="mx-2"></div>
-                      <b
-                        style={{
-                          marginRight: "4px",
-                          fontSize: "14px",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Failed
-                      </b>
-                      <div className={`${style.text}`}>2</div>
-                    </div>
-                    <div className={`${style.volume} my-2`}></div>
-                    <div className="d-flex align-items-center">
-                      <div className={`${style.btn} px-3 py-2`}>
-                        More Details
-                      </div>
-                      <div className={`${style.btn} px-3 py-2 mx-2`}>
-                        Cancel
-                      </div>
-                      <div className={`${style.check}`}></div>
-                      <div className={`${style.text} mx-2`}>
-                        recieve report on email
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className={`${style.img}`}></div>
-                  </div>
-                </div>
-              </div>
+      {/*FIRfeferST SECTION*/}
+      <div className="">
+        <div className="">
+          <div className={`${style.title}`}>No Lama Drama</div>
+          <div className={`${style.text}`}>
+            No Drama Lama is an NFT collection designed by the Vibe Token team
+            to enable holders to have special access to their premium features
+            of their VIBE Dapp without having to subscribe to a monthly fee.
+          </div>
+          <div
+            className={`${style.wallet} cursor`}
+            onClick={() => setWallet(true)}
+          >
+            <div className={`${style.walletText}`}>Connect wallet</div>
+            <FaBtc className={`${style.walletIcon}`} />
+          </div>
+          {/*mobile carousel*/}
+          <div
+            className={`${style.carousel} d-flex d-sm-none align-items-center`}
+          >
+            <div ref={ref} className={`${style.carouselItem} d-flex`}>
+              {carousel.map(({ img, x }, index) => {
+                return (
+                  <img
+                    key={index}
+                    src={img}
+                    style={{
+                      transform: `scale(${current === x ? "1.05" : "0.8"})`,
+                    }}
+                    className={`${style.carouselIte} d-flex`}
+                    alt=""
+                  />
+                );
+              })}
             </div>
           </div>
-          <div className="col-md-11 col-lg-3 pt-4 pt-lg-0">
-            <div className="row px-0 justify-content-end">
-              <div className="col-6 col-lg-11">
-                <div className={`${style.lightTitle}`}>overview</div>
+          <div className={`${style.carouselDots} d-sm-none`}>
+            {carousel.map(({ img, x }, index) => {
+              return (
                 <div
-                  className={`${style.cardBorder} px-3 py-2 mt-2 d-flex  justify-content-between`}
-                >
-                  <div className={`${style.text}`}>wallet balance</div>
-                  <b
-                    className={`${style} d-flex align-items-center text-muted`}
-                  >
-                    <div className=" mx-1">250 LRC</div>
-                    <FaChevronRight />
-                  </b>
-                </div>
-                <div className={`${style.cardBorder} px-3 py-3 mt-4`}>
-                  <h5>NFTs</h5>
-                  <div className="d-flex justify-content-between">
-                    <div className={`${style.text}`}>NFT items</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">187</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                  <div className="d-flex justify-content-between my-3">
-                    <div className={`${style.text}`}>collections</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">5</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <div className={`${style.text}`}>minted</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">39</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                </div>
-              </div>
-              <div className="col-6 col-lg-11 mt-4 pt-2">
-                <div className={`${style.cardBorder} px-3 py-4`}>
-                  <h5>Saved Changes</h5>
-                  <div className="d-flex justify-content-between my-3">
-                    <div className={`${style.text}`}>collections</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">5</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <div className={`${style.text}`}>minted</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">39</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                </div>
-              </div>
-              <div className="col-6 col-lg-11 mt-4 pt-1">
-                <div className={`${style.cardBorder} px-3 py-4`}>
-                  <h5>Sales Watclist</h5>
-                  <div className="d-flex justify-content-between my-3">
-                    <div className={`${style.text}`}>collections</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">5</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <div className={`${style.text}`}>minted</div>
-                    <b
-                      className={`${style} d-flex align-items-center text-muted`}
-                    >
-                      <div className=" mx-1">39</div>
-                      <FaChevronRight />
-                    </b>
-                  </div>
-                </div>
-              </div>
+                  className=""
+                  style={{ background: `${current === x ? "white" : ""}` }}
+                  onClick={() => setCurrent(x)}
+                />
+              );
+            })}
+          </div>
+          {/*desktop carousel*/}
+          <div
+            className={`${style.carousel} d-sm-flex d-none align-items-center`}
+          >
+            <div ref={reff} className={`${style.carouselItem} d-flex`}>
+              {carousel2.map(({ img, x }, index) => {
+                return (
+                  <img
+                    key={index}
+                    src={img}
+                    style={{
+                      transform: `scale(${active === x ? "1.05" : "0.8"})`,
+                    }}
+                    className={`${style.carouselIte} d-flex`}
+                    alt=""
+                  />
+                );
+              })}
             </div>
+          </div>
+          <div className={`${style.carouselDots} d-none d-sm-flex`}>
+            {carousel2.map(({ img, x }, index) => {
+              return (
+                <div
+                  className=""
+                  style={{ background: `${active === x ? "white" : ""}` }}
+                  onClick={() => setActive(x)}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div className="">
+          <div className={`${style.circle}`}></div>
+          <div className={`${style.circleTwo}`}>
+            <div className={`${style.percent}`}>0%</div>
+            <div className={`${style.percentText}`}>Minted</div>
+          </div>
+          <div className={`${style.mintText}`}>800/2500 Minted</div>
+          <div className={`${style.mintText2}`}>Mint Price 0.09 Eth</div>
+          <div className={`${style.box}`}></div>
+          <div className={`${style.boxTitle}`}>Number of NFTs</div>
+          <div className={`${style.calc}`}></div>
+          <div className={`${style.minus}`}></div>
+          <div className={`${style.num}`}>3</div>
+          <div className={`${style.plus}`}></div>
+          <div className={`${style.plus2}`}></div>
+          <div className={`${style.max}`}>Max</div>
+          <div className={`${style.mint}`}>Max</div>
+        </div>
+      </div>
+      {/*SECOND SCTION*/}
+      <section>
+        <img src="/media/1.png" className={`${style.sectionImg}`} />
+        <div className={`${style.sectionTitle}`}>About Lama project</div>
+        <div className={`${style.sectionText} d-sm-none`}>
+          Lorem ipsum dolor sit amet consectetur. Sem luctus arcu amet vehicula.
+          Adipiscing pellentesque amet nisi gravida aliquam elit vitae
+          vulputate. Ut feugiat sem faucibus at. Non facilisi pharetra facilisi
+          ut diam id in nibh. Magna in semper iaculis pellentesque donec. Massa
+        </div>
+        <div className={`${style.sectionText} d-none d-sm-block`}>
+          Lorem ipsum dolor sit amet consectetur. Sem luctus arcu amet vehicula.
+          Adipiscing pellentesque amet nisi gravida aliquam elit vitae
+          vulputate. Ut feugiat sem faucibus at. Non facilisi pharetra facilisi
+          ut diam id in nibh. Magna in semper iaculis pellentesque donec. Massa
+          <div className={`${style.mb}`} />
+          Convallis ipsum velit leo lorem. Vehicula sem suspendisse iaculis ut
+          amet senectus. Suspendisse ac venenatis orci etiam odio amet arcu
+          tincidunt. Orci aliquet venenatis morbi ante quis lectus lacus
+          faucibus gravida. Imperdiet dolor integer accumsan faucibus quam
+          egestas gravida
+          <div className={`${style.mb}`} />
+          euismod suscipit ullamcorper aenean. Mattis consequat euismod mattis
+          massa ultrices egestas. Arcu ullamcorper volutpat sit semper morbi
+          pharetra fusce dictum nulla. Et dui magna magna dictum. Varius tortor
+          nascetur imperdiet enim et sagittis. Nunc porta facilisis habitant
+          phasellus.
+          <div className={`${style.mb}`} />
+          Convallis ipsum velit leo lorem. Vehicula sem suspendisse iaculis ut
+          amet senectus. Suspendisse ac venenatis orci etiam odio amet arcu
+          tincidunt. Orci aliquet venenatis morbi ante quis lectus lacus
+          faucibus gravida. Imperdiet dolor integer accumsan faucibus quam
+          egestas gravida
+        </div>
+      </section>
+      {/*THIRD SCTION*/}
+      <footer>
+        <div className={`${style.footerTitle}`}>get on the list</div>
+        <div className={`${style.footerInput}`}>Enter your email address</div>
+        <div className={`${style.inputIcon}`}></div>
+        <FaChevronRight className={`${style.inputArrow}`} />
+        <div className="d-none d-sm-block">
+          <img src="/media/Vector.png" className={`${style.logo}`} />
+          <div className={`${style.logoBadge}`} />
+          <img src="/media/Vector (2).png" className={`${style.logo2}`} />
+          <div className={`${style.logo2Badge}`} />
+          <img src="/media/Vector (3).png" className={`${style.logo3}`} />
+          <div className={`${style.logo3Badge}`} />
+          <img src="/media/Vector (1).png" className={`${style.logo4}`} />
+          <div className={`${style.logo4Badge}`} />
+        </div>
+
+        <img src="/media/Vector (4).png" className={`${style.instagram}`} />
+        <img src="/media/Layer_2.png" className={`${style.twitch}`} />
+        <img src="/media/Vector (5).png" className={`${style.twitter}`} />
+        <img src="/media/Vector (6).png" className={`${style.youtube}`} />
+        <div className={`${style.footerText}`}>© 2023 Vibe Token LLC </div>
+        <div className={`${style.footerText2}`}>Terms & Conditions </div>
+        <div className={`${style.footerText3}`}>Privacy Policy </div>
+      </footer>
+
+      {/*WALLET SECTION*/}
+      <div
+        className={
+          wallet
+            ? `${style.sideBarContainer} ${style.show} d-sm-`
+            : `${style.sideBarContainer} d-sm-`
+        }
+      >
+        <div
+          className={
+            wallet ? `${style.sideBar} ${style.show}` : `${style.sideBar}`
+          }
+        >
+          <div className={`${style.navLogoContainer} d-sm-none`}>
+            <img src="/media/Vector.png" className={`${style.navLogo}`} />
+            <div className={`${style.navLogoBadge}`} />
+            <img src="/media/Vector (2).png" className={`${style.navLogo2}`} />
+            <div className={`${style.navLogo2Badge}`} />
+            <img src="/media/Vector (3).png" className={`${style.navLogo3}`} />
+            <div className={`${style.navLogo3Badge}`} />
+            <img src="/media/Vector (1).png" className={`${style.navLogo4}`} />
+            <div className={`${style.navLogo4Badge} d-none d-sm-block`} />
+          </div>
+          <FaTimes
+            className={`${style.sideBarIcon} cursor`}
+            onClick={() => setWallet(false)}
+          />
+          <div className={`${style.modalTitle}`}>connect a wallet</div>
+          <div className={`${style.modalText}`}>
+            If you currently don't have a wallet, you have the option to choose
+            a provider and generate one at this moment.
+          </div>
+          <div className={`${style.modalBox}  `}></div>
+          <div className={`${style.modalBoxText1}  cursor`}>Metamask</div>
+          <div className={`${style.bar}  `} />
+          <div className={`${style.modalBoxText2}  cursor`}>WalletConnect</div>
+          <div className={`${style.bar2}  `} />
+          <div className={`${style.modalBoxText3}  cursor`}>
+            Coinbase Wallet
           </div>
         </div>
       </div>

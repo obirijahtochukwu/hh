@@ -1,0 +1,38 @@
+@import "./styles/Theme.scss";
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  // background: black;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input:focus {
+  outline: none !important;
+}
+button {
+  outline: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: $gradient;
+}
+::-webkit-scrollbar-track {
+  background: $white;
+}
+
+.cursor {
+  cursor: pointer;
+}

@@ -1,0 +1,129 @@
+@import "../../styles/Theme.scss";
+
+.header {
+  position: relative;
+  @include sizeL($width: 2036, $height: 808.25, $bg: brown);
+}
+.headerTxt {
+  position: absolute;
+  @include sizeL($top: 217, $left: 224, $width: 809, $height: 270);
+  @include fontsL(
+    $fSize: 48,
+    $fWeight: 400,
+    $fFamily: $bitter,
+    $color: $white,
+    $lH: 54
+  );
+  letter-spacing: #{scaleXL(8.2)};
+}
+
+.headerImg {
+  position: absolute;
+  @include sizeL($top: 234, $left: 1246, $width: 400, $height: 406);
+}
+
+.headerBtn {
+  position: absolute;
+  @include sizeL(
+    $top: 535,
+    $left: 224,
+    $width: 276,
+    $height: 56,
+    $bg: #b57a50,
+    $borderRadius: 6
+  );
+  @include fontsL(
+    $fSize: 20,
+    $fFamily: $nunito,
+    $fWeight: 600,
+    $lH: 24,
+    $color: $white
+  );
+  text-transform: uppercase;
+  letter-spacing: #{scaleXL(0.096)};
+}
+
+.subtitle {
+  position: relative;
+  padding-top: #{scaleXL(139.25)};
+  @include sizeL($left: 225.5);
+  @include fontsL(
+    $fSize: 40,
+    $fWeight: 400,
+    $fFamily: $bitter,
+    $color: $black,
+    $lH: 54
+  );
+  letter-spacing: #{scaleXL(1.6)};
+}
+
+.customizeContainer {
+  position: relative;
+  margin-top: #{scaleXL(46)};
+  @include sizeL($left: 225.5);
+  display: flex;
+  flex-direction: row;
+  gap: #{scaleXL(24)};
+}
+.customizeImg {
+  @include sizeL($width: 349, $height: 335, $borderRadius: 10);
+}
+
+.thirdSection {
+  position: relative;
+  margin-top: #{scaleXL(207.75)};
+  @include sizeL($left: 0, $width: 1920, $height: 778, $bg: #cfcfcf);
+}
+
+.fourthSection {
+  position: relative;
+  margin-top: #{scaleXL(207.75)};
+  @include sizeL($left: 0, $width: 1920, $height: 898, $bg: #e8e8e8);
+}
+
+.subCard {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  @include sizeL(
+    $left: 0,
+    $bottom: 0,
+    $height: 154,
+    $bg: rgba(255, 255, 255, 0.4)
+  );
+  padding: #{scaleXL(16)} #{scaleXL(24)};
+  border-radius: 0px 0px #{scaleXL(10)} #{scaleXL(10)};
+}
+
+.txt {
+  position: absolute;
+  z-index: 5888888 !important;
+  @include sizeL($top: 399, $left: 24, $width: 416);
+  @include fontsL(
+    $fFamily: $bitter,
+    $fSize: 28,
+    $fWeight: 400,
+    $color: $black,
+    $lH: 37
+  );
+  letter-spacing: #{scaleXL(0.32)};
+}
+.price {
+  position: absolute;
+  z-index: 5888888 !important;
+  @include sizeL($top: 489, $left: 24, $width: 416);
+  @include fontsL($fFamily: $bitter, $fSize: 22, $fWeight: 600, $color: $black);
+}
+.likes {
+  position: absolute;
+  z-index: 5888888 !important;
+  @include sizeL($top: 495, $left: 395, $width: 416);
+  @include fontsL(
+    $fFamily: $bitter,
+    $fSize: 16,
+    $fWeight: 400,
+    $color: $black,
+    $lH: 20
+  );
+  letter-spacing: #{scaleXL(0.32)};
+}

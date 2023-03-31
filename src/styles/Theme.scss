@@ -1,5 +1,67 @@
-$black: black;
-$text-color: rgb(0, 0, 0, 0.5);
-$transparent: rgb(0, 0, 0, 0.15);
+@import url("https://fonts.googleapis.com/css?family=Bitter");
+
+$black: #1e1e1e;
+$dark-black: black;
+$text-color: #a3a3a3;
+$transparent: #3f3f3f;
 $green: green;
-$orange: #FF4800;
+$orange: #ff4800;
+$white: #ffffff;
+
+$gradient: linear-gradient(
+  207.77deg,
+  #fdf0b9 11.71%,
+  #ffccb9 58.66%,
+  #e197ea 89.09%
+);
+
+// FONTS
+$bitter: "Bitter";
+$nunito: "nunito";
+
+@function scaleXL($value, $ideal: 1920, $current: 100vw) {
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
+}
+@function scaleYL($value, $ideal: 1027, $current: 100vw) {
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
+}
+@mixin sizeL(
+  $height: "",
+  $width: "",
+  $minHeight: "",
+  $bottom: "",
+  $top: "",
+  $left: "",
+  $right: "",
+  $border: "",
+  $borderRadius: "",
+  $bg: "",
+  $mTop: ""
+) {
+  bottom: #{scaleXL($bottom)};
+  top: #{scaleXL($top)};
+  left: #{scaleXL($left)};
+  right: #{scaleXL($right)};
+  height: #{scaleXL($height)};
+  margin-top: #{scaleXL($mTop)} !important;
+  width: #{scaleXL($width)};
+  border: $border;
+  border-radius: #{scaleXL($borderRadius)};
+  background: $bg;
+}
+
+@mixin fontsL(
+  $fFamily: "",
+  $fStyle: "",
+  $fSize: "",
+  $color: "",
+  $fWeight: "",
+  $lH: ""
+) {
+  font-family: $fFamily;
+  font-style: $fStyle;
+  font-size: #{scaleXL($fSize)};
+  font-weight: $fWeight;
+  color: $color;
+  line-height: #{scaleXL($lH)};
+}
