@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./context";
-import App from "./App";
+import Login from "./client/pages/login/Login";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 
@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <BrowserRouter>
-        <App />
+        <Login />
       </BrowserRouter>
     </AppProvider>
   </React.StrictMode>

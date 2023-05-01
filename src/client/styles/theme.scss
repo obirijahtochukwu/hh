@@ -1,0 +1,8 @@
+$bitter: "Bitter";
+$poppins: "Poppins";
+$inter: "Inter";
+$white: #ffffff;
+
+@function scaleXL($value, $ideal: 1920, $current: 100vw) {
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
+}
