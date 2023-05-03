@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Dashboard from "./pages/home/Index";
 import Navbar from "./navigation/Navbar";
-//import Sidebar from "./navigation/Sidebar";
+import Login from "./client/pages/login/Login";
+import HomePage from "./client/pages/homePage/Index";
 
 function App() {
   return (
     <div className="App">
       {/*<Navbar />*/}
       <Routes>
-        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/login" exact element={<Login />} />
       </Routes>
     </div>
   );

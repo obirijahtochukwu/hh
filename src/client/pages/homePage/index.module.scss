@@ -36,6 +36,7 @@
       width: #{scaleXL(545)};
     }
     form {
+      z-index: 1;
       margin-top: #{scaleXL(20)};
       margin-left: #{scaleXL(116)};
       .inputContainer {
@@ -107,10 +108,31 @@
       opacity: 0.6;
       filter: blur(#{scaleXL(158.5)});
     }
+    .bigPink {
+      position: fixed;
+      top: #{scaleXL(430)};
+      right: #{scaleXL(142)};
+      height: #{scaleXL(226)};
+      width: #{scaleXL(226)};
+      background: #dda82a;
+      opacity: 0.6;
+      filter: blur(#{scaleXL(158.5)});
+    }
     .blue {
       position: fixed;
       top: #{scaleXL(457)};
       left: #{scaleXL(346)};
+      height: #{scaleXL(226)};
+      width: #{scaleXL(226)};
+      background: #4461f2;
+      opacity: 0.6;
+      filter: blur(#{scaleXL(158.5)});
+    }
+
+    .bigBlue {
+      position: fixed;
+      top: #{scaleXL(257)};
+      right: #{scaleXL(346)};
       height: #{scaleXL(226)};
       width: #{scaleXL(226)};
       background: #4461f2;

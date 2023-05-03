@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import loginStyle from "./index.module.scss";
 import { FaEye } from "react-icons/fa";
-import axios from "axios";
+// import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import Header from "../../layout/Header";
 
-export default function Login() {
+export default function Index() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState(JSON.parse(localStorage.getItem("email")));
+  const [name, setName] = useState("");
+  const [auth, setAuth] = useState("");
   const navigate = useNavigate();
 
   const login = (e) => {
@@ -15,33 +16,30 @@ export default function Login() {
     // axios
     //   .post("http://52.205.252.14/api/login/", {
     //     username: "admin",
-    //     password: "admin",
+    //     name: "admin",
     //   })
     //   .then((res) => console.log(res.data));
     localStorage.setItem("email", JSON.stringify(email));
-    localStorage.setItem("password", password);
-    setAuth(email);
-
+    localStorage.setItem("name", name);
     setEmail("");
-    setPassword("");
+    setName("");
   };
-
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("email"));
     setAuth(auth);
-    // console.log(auth);
     // return () => setAuth("");
   }, []);
 
-  if (auth) {
-    navigate("/");
+  if (!auth) {
+    navigate("/login");
   }
 
   return (
     <div className={`${loginStyle.container}`}>
+      <Header />
       <article>
         <div>
-          <div className={loginStyle.title}>Sign In to Recharge Direct</div>
+          <div className={loginStyle.title}>Create New Agent Direct</div>
           <div className={loginStyle.text}>
             if you don’t an account you can <a href="#6">Register here!</a>
           </div>
@@ -50,28 +48,29 @@ export default function Login() {
         <form onSubmit={login}>
           <div className={loginStyle.inputContainer}>
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Enter email"
+              type="text"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <img src="/client/X.svg" alt="" className={loginStyle.clearIcon} />
           </div>
           <div className={loginStyle.inputContainer}>
             <input
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Enter Email"
             />
-            <FaEye className={loginStyle.clearIcon} />
+            <img src="/client/X.svg" alt="" className={loginStyle.clearIcon} />
           </div>
-          <div className={loginStyle.title}>Recover Password ?</div>
 
-          <button type="submit">sign in</button>
+          <button type="submit">Submit</button>
         </form>
         <div className={loginStyle.pink}></div>
+        <div className={loginStyle.bigPink}></div>
         <div className={loginStyle.blue}></div>
+        <div className={loginStyle.bigBlue}></div>
       </article>
     </div>
   );

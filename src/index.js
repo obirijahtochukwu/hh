@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./context";
-import Login from "./client/pages/login/Login";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AppProvider>
       <BrowserRouter>
-        <Login />
+        <App />
       </BrowserRouter>
     </AppProvider>
   </React.StrictMode>
