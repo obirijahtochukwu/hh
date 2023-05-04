@@ -28,7 +28,7 @@ export default function Header() {
       <div
         onClick={() => {
           localStorage.removeItem("email");
-          window.location.reload();
+          window.location.href = "/login";
         }}
         className={style.logout}
       >
