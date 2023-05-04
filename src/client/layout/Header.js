@@ -5,9 +5,9 @@ import { FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const link = [
-    { text: "home", url: "#1" },
-    { text: "create agent", url: "#1" },
-    { text: "upload file", url: "#1" },
+    { text: "dashboard", url: "/dashboard" },
+    { text: "create agent", url: "/create-agent" },
+    { text: "upload file", url: "/#1" },
   ];
   return (
     <div className={style.container}>

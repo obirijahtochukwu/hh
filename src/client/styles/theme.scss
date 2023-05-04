@@ -2,6 +2,9 @@ $bitter: "Bitter";
 $poppins: "Poppins";
 $inter: "Inter";
 $white: #ffffff;
+$semiWhite: rgb(255, 255, 255, 0.8);
+$darkGreen: #1d555c;
+$lightGreen: #36dfae;
 
 @function scaleXL($value, $ideal: 1920, $current: 100vw) {
   @return calc(#{$value} * (#{$current} / #{$ideal}));
