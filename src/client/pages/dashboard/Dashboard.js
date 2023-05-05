@@ -1,85 +1,77 @@
-import React from "react";
-import style from "./index.module.scss";
-import { membersData, pieChartData } from "./mockData";
+import React, { useEffect, useState } from "react";
+import loginStyle from "./index.module.scss";
+import { FaEye } from "react-icons/fa";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../layout/Header";
 
 export default function Dashboard() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [auth, setAuth] = useState("");
+  const navigate = useNavigate();
+
+  const login = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://52.205.252.14/api/login/", {
+        username: "admin",
+        name: "admin",
+      })
+      .then((res) => console.log(res.data));
+    localStorage.setItem("email", JSON.stringify(email));
+    localStorage.setItem("name", name);
+    setEmail("");
+    setName("");
+  };
+  useEffect(() => {
+    const auth = JSON.parse(localStorage.getItem("email"));
+    setAuth(auth);
+    // return () => setAuth("");
+  }, []);
+
+  if (!auth) {
+    navigate("/login");
+  }
+
   return (
-    <div className={`${style.container}`}>
+    <div className={`${loginStyle.container}`}>
       <Header />
-      <section className={style.userProfile}>
-        <div className="d-flex align-items-center">
-          <img src="/client/image 10 (1).svg" alt="" />
-          <div className="">
-            <div className={style.title}>Kris Millar</div>
-            <div className={style.text}>krissmiller@gmail.com</div>
+      <article>
+        <div>
+          <div className={loginStyle.title}>Create New Agent Direct</div>
+          <div className={loginStyle.text}>
+            if you don’t an account you can <a href="#6">Register here!</a>
           </div>
         </div>
-        <div className={style.paragraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          ultrices velit a nulla placerat, vitae accumsan mauris euismod. Nam
-          semper dignissim est a sollicitudin. Vestibulum non ipsum tellus.
-          Vivamus a eros nec sapien vestibulum.
-        </div>
-
-        <div className={style.description}>
-          <div>
-            <span className={style.title}>Guild</span>
-            <span className={style.text}>DAO Operation Guild</span>
+        <img src="/client/Character 1.svg" alt="" className={loginStyle.img} />
+        <form onSubmit={login}>
+          <div className={loginStyle.inputContainer}>
+            <input
+              type="text"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <img src="/client/X.svg" alt="" className={loginStyle.clearIcon} />
           </div>
-          <div>
-            <span className={style.title}>Pod</span>
-            <span className={style.text}>Regen Pod</span>
+          <div className={loginStyle.inputContainer}>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Enter Email"
+            />
+            <img src="/client/X.svg" alt="" className={loginStyle.clearIcon} />
           </div>
-        </div>
 
-        <div className={style.charts}>
-          {pieChartData.map(({ num, title }, index) => {
-            return (
-              <div key={index} className="d-flex flex-column text-center gap-2">
-                <div className={style.chart}>{num}</div>
-                <div className={style.title}>{title}</div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <article className={style.members}>
-        <div className="d-flex align-items-center gap-2">
-          <div className={style.title}>New Members</div>
-          <div className={style.text}>{membersData.length}</div>
-        </div>
-        <div className={style.member}>
-          {membersData.map(({ img, name, category, date, time }, index) => {
-            return (
-              <div
-                key={index}
-                className={`d-flex align-items-center justify-content-between`}
-              >
-                <div className="d-flex items-items-center gap-2 align-items-center">
-                  <img src={img} alt="" className={style.membersImg} />
-                  <div>
-                    <div className={style.title}>{name}</div>
-                    <div className={style.text}>{category}</div>
-                  </div>
-                </div>
-                <div className="">
-                  <div className={`d-flex justify-content-end ${style.title}`}>
-                    {date}
-                  </div>
-                  <div className={style.text}>{time}</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+          <button type="submit">Submit</button>
+        </form>
+        <div className={loginStyle.pink}></div>
+        <div className={loginStyle.bigPink}></div>
+        <div className={loginStyle.blue}></div>
+        <div className={loginStyle.bigBlue}></div>
       </article>
-
-      <div className={style.pink}></div>
-      <div className={style.bigPink}></div>
-      <div className={style.blue}></div>
-      <div className={style.bigBlue}></div>
     </div>
   );
 }
