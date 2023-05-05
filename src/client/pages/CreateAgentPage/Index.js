@@ -12,6 +12,8 @@ export default function Index() {
 
   const login = (e) => {
     e.preventDefault();
+    const token = JSON.parse(localStorage.getItem("key"));
+
     axios
       .post(
         "http://52.205.252.14/api/agent/create/",
