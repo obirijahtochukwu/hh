@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../layout/Header";
 
 export default function Index() {
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [auth, setAuth] = useState("");
   const navigate = useNavigate();
@@ -15,23 +15,26 @@ export default function Index() {
     e.preventDefault();
     axios
       .post("http://52.205.252.14/api/login/", {
-        username: "admin",
-        name: "admin",
+        username: name,
+        password: password,
       })
-      .then((res) => console.log(res.data));
-    localStorage.setItem("email", JSON.stringify(email));
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("token", JSON.stringify(res.data.key));
+      });
+    localStorage.setItem("password", JSON.stringify(password));
     localStorage.setItem("name", name);
-    setEmail("");
+    setPassword("");
     setName("");
   };
   useEffect(() => {
-    const auth = JSON.parse(localStorage.getItem("email"));
+    const auth = JSON.parse(localStorage.getItem("password"));
     setAuth(auth);
     // return () => setAuth("");
   }, []);
 
-  if (!auth) {
-    navigate("/login");
+  if (auth) {
+    navigate("/dashboard");
   }
 
   return (
@@ -57,10 +60,10 @@ export default function Index() {
           </div>
           <div className={loginStyle.inputContainer}>
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Enter Email"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Enter password"
             />
             <img src="/client/X.svg" alt="" className={loginStyle.clearIcon} />
           </div>

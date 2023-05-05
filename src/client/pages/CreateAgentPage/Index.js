@@ -12,19 +12,25 @@ export default function Index() {
 
   const login = (e) => {
     e.preventDefault();
-    // axios
-    //   .post("http://52.205.252.14/api/login/", {
-    //     username: "admin",
-    //     name: "admin",
-    //   })
-    //   .then((res) => console.log(res.data));
+    axios
+      .post(
+        "http://52.205.252.14/api/agent/create/",
+        {
+          email: email,
+          name: name,
+        },
+        {
+          Header: `Authorization: Token ${token}`,
+        }
+      )
+      .then((res) => console.log(res.data));
     localStorage.setItem("email", JSON.stringify(email));
     localStorage.setItem("name", name);
     setEmail("");
     setName("");
   };
   useEffect(() => {
-    const auth = JSON.parse(localStorage.getItem("email"));
+    const auth = JSON.parse(localStorage.getItem("password"));
     setAuth(auth);
     // return () => setAuth("");
   }, []);
