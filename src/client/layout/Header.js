@@ -26,8 +26,8 @@ export default function Header() {
 			</section>
 			<div
 				onClick={() => {
-					localStorage.removeItem("password");
-					// window.location.href = "/login";
+					localStorage.removeItem("token");
+					window.location.href = "/login";
 				}}
 				className={style.logout}>
 				<div>logout</div>

@@ -3,13 +3,29 @@ import style from "./index.module.scss";
 import { membersData, pieChartData } from "./mockData";
 import Header from "../../layout/Header";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Dashboard() {
 	const [auth, setAuth] = useState("");
+	const [agents, setAgents] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const auth = localStorage.getItem("password");
+		const token = JSON.parse(localStorage.getItem("token"));
+
+		axios
+			.get(`http://52.205.252.14/api/agent/list/`, {
+				headers: { Authorization: `Token ${token}` },
+			})
+			.then((res) => {
+				setAgents(res.data);
+			})
+			.catch((err) => console.log(err));
+		// return () => setAuth("");
+	}, []);
+
+	useEffect(() => {
+		const auth = localStorage.getItem("token");
 		setAuth(auth);
 		// return () => setAuth("");
 	}, []);
@@ -66,31 +82,31 @@ export default function Dashboard() {
 
 			<article className={style.members}>
 				<div className="d-flex align-items-center gap-2">
-					<div className={style.title}>New Members</div>
-					<div className={style.text}>{membersData.length}</div>
+					<div className={style.title}>New Agents</div>
+					<div className={style.text}>{agents.length}</div>
 				</div>
 				<div className={style.member}>
-					{membersData.map(({ img, name, category, date, time }, index) => {
+					{agents.map(({ name, email, agent_id }, index) => {
 						return (
 							<div
 								key={index}
 								className={`d-flex align-items-center justify-content-between`}>
 								<div className="d-flex items-items-center gap-2 align-items-center">
 									<img
-										src={img}
+										src={"/client/513ef3cfd86d5a226fa969aa5d579e54 1 (1).svg"}
 										alt=""
 										className={style.membersImg}
 									/>
 									<div>
 										<div className={style.title}>{name}</div>
-										<div className={style.text}>{category}</div>
+										<div className={style.text}>{email}</div>
 									</div>
 								</div>
 								<div className="">
 									<div className={`d-flex justify-content-end ${style.title}`}>
-										{date}
+										{"ID"}
 									</div>
-									<div className={style.text}>{time}</div>
+									<div className={style.text}>{agent_id}</div>
 								</div>
 							</div>
 						);

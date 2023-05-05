@@ -17,16 +17,14 @@ export default function Index() {
 				password: password,
 			})
 			.then((res) => {
-				console.log(res.data);
-				localStorage.setItem("token", JSON.stringify(res.data.key));
+				localStorage.setItem("token", JSON.stringify(res.data.token));
+				setPassword("");
+				setName("");
+				window.location.href = "/create-agent";
 			});
-		// localStorage.setItem("password", JSON.stringify(password));
-		// localStorage.setItem("name", name);
-		setPassword("");
-		setName("");
 	};
 	useEffect(() => {
-		const auth = localStorage.getItem("password");
+		const auth = localStorage.getItem("token");
 		setAuth(auth);
 		// return () => setAuth("");
 	}, []);

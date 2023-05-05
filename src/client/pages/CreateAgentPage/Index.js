@@ -9,30 +9,30 @@ export default function Index() {
 	const [name, setName] = useState("");
 	const [auth, setAuth] = useState("");
 	const navigate = useNavigate();
-
+	const token = JSON.parse(localStorage.getItem("token"));
+	console.log(token);
 	const login = (e) => {
 		e.preventDefault();
-		const token = JSON.parse(localStorage.getItem("key"));
-
 		axios
 			.post(
-				"http://52.205.252.14/api/agent/create/",
+				`http://52.205.252.14/api/agent/create/`,
 				{
 					email: email,
 					name: name,
 				},
 				{
-					Header: `Authorization: Token ${token}`,
+					headers: { Authorization: `Token ${token}` },
 				}
 			)
-			.then((res) => console.log(res.data));
-		localStorage.setItem("email", JSON.stringify(email));
-		localStorage.setItem("name", name);
-		setEmail("");
-		setName("");
+			.then((res) => {
+				console.log(res.data);
+				setEmail("");
+				setName("");
+			})
+			.catch((err) => console.log(err));
 	};
 	useEffect(() => {
-		const auth = localStorage.getItem("password");
+		const auth = localStorage.getItem("token");
 		setAuth(auth);
 		// return () => setAuth("");
 	}, []);
