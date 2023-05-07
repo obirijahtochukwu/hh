@@ -52,7 +52,7 @@ export default function Index() {
 					</div>
 				</div>
 				<img
-					src="/client/Character 1.svg"
+					src="static/media/client/Character 1.svg"
 					alt=""
 					className={loginStyle.img}
 				/>
@@ -65,7 +65,7 @@ export default function Index() {
 							onChange={(e) => setName(e.target.value)}
 						/>
 						<img
-							src="/client/X.svg"
+							src="static/media/client/X.svg"
 							alt=""
 							className={loginStyle.clearIcon}
 						/>
@@ -78,7 +78,7 @@ export default function Index() {
 							placeholder="Enter Email"
 						/>
 						<img
-							src="/client/X.svg"
+							src="static/media/X.svg"
 							alt=""
 							className={loginStyle.clearIcon}
 						/>
