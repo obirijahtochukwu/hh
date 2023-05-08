@@ -21,7 +21,6 @@ export default function Dashboard() {
         setAgents(res.data);
       })
       .catch((err) => console.log(err));
-    // return () => setAuth("");
   }, []);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ export default function Dashboard() {
     // return () => setAuth("");
   }, []);
 
-  if (auth) {
+  if (!auth) {
     navigate("/login");
   }
 

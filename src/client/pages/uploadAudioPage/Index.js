@@ -7,7 +7,7 @@ import { FaLink } from "react-icons/fa";
 import Dropdown from "../../components/dropdown/Index";
 
 export default function UploadAgent() {
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [audio, setAudio] = useState("");
   const [auth, setAuth] = useState("");
   const navigate = useNavigate();
@@ -16,10 +16,10 @@ export default function UploadAgent() {
   const login = (e) => {
     e.preventDefault();
     Axios.post(
-      `http://52.205.252.14/api/agent/create/`,
+      `http://52.205.252.14/api/upload/`,
       {
-        email: email,
-        audio: audio,
+        // name: name,
+        file: audio,
       },
       {
         headers: { Authorization: `Token ${token}` },
@@ -27,18 +27,19 @@ export default function UploadAgent() {
     )
       .then((res) => {
         console.log(res.data);
-        setEmail("");
+        setName("");
         setAudio("");
       })
       .catch((err) => console.log(err));
   };
+
   useEffect(() => {
     const auth = localStorage.getItem("token");
     setAuth(auth);
     // return () => setAuth("");
   }, []);
 
-  if (auth) {
+  if (!auth) {
     navigate("/login");
   }
 

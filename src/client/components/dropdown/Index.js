@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
-import { membersData } from "../../pages/dashboard/mockData";
+import axios from "axios";
 
 export default function Dropdown() {
   const [searchValue, setSearchValue] = useState("");
   const [modal, setModal] = useState(false);
   const [agent, setAgent] = useState("");
+  const [agents, setAgents] = useState([]);
 
-  const filteredItems = membersData.filter((item) =>
+  const filteredItems = agents?.filter((item) =>
     item.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
@@ -21,6 +22,19 @@ export default function Dropdown() {
     };
     document.addEventListener("mousedown", leave);
   }, [ref]);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    axios
+      .get(`http://52.205.252.14/api/agent/list/`, {
+        headers: { Authorization: `Token ${token}` },
+      })
+      .then((res) => {
+        setAgents(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>

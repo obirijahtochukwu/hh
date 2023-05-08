@@ -36,7 +36,7 @@ export default function Index() {
     // return () => setAuth("");
   }, []);
 
-  if (auth) {
+  if (!auth) {
     navigate("/login");
   }
 
