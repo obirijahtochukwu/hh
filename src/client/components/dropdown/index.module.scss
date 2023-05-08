@@ -1,0 +1,59 @@
+@import "../../styles/theme.scss";
+
+.inputContainer {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  input {
+    margin-top: #{scaleXL(20)};
+    padding-left: #{scaleXL(20)};
+    padding-right: #{scaleXL(57)};
+    height: #{scaleXL(60)};
+    width: #{scaleXL(400)};
+    background: $white;
+    border-radius: #{scaleXL(10)};
+    border: none;
+    font-size: #{scaleXL(20)};
+    font-family: $inter;
+    font-weight: 400;
+    line-height: #{scaleXL(24)};
+    color: #667085;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: #{scaleXL(120)};
+  left: 0;
+  background: white;
+  width: 100%;
+  border-radius: #{scaleXL(10)};
+  overflow: hidden;
+  visibility: hidden;
+  z-index: -5;
+  opacity: 0;
+  transition: 0.2s;
+
+  div {
+    cursor: pointer;
+    font-size: #{scaleXL(25)};
+    font-family: $bitter;
+    font-weight: 400;
+    padding: #{scaleXL(10)} #{scaleXL(15)};
+    transition: 0.2s;
+    &:hover {
+      background: rgb(0, 0, 0, 0.1);
+    }
+  }
+  div.show {
+    background-color: #14162e !important;
+    color: $white !important;
+  }
+}
+
+.modal.show {
+  top: #{scaleXL(90)};
+  visibility: visible;
+  z-index: 5;
+  opacity: 1;
+}

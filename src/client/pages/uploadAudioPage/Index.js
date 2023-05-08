@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import loginStyle from "./index.module.scss";
-import axios, { Axios } from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Axios } from "axios";
+import { useNavigate } from "react-router-dom";
 import Header from "../../layout/Header";
+import { FaLink } from "react-icons/fa";
+import Dropdown from "../../components/dropdown/Index";
 
-export default function Index() {
+export default function UploadAgent() {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [audio, setAudio] = useState("");
   const [auth, setAuth] = useState("");
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
@@ -17,7 +19,7 @@ export default function Index() {
       `http://52.205.252.14/api/agent/create/`,
       {
         email: email,
-        name: name,
+        audio: audio,
       },
       {
         headers: { Authorization: `Token ${token}` },
@@ -26,7 +28,7 @@ export default function Index() {
       .then((res) => {
         console.log(res.data);
         setEmail("");
-        setName("");
+        setAudio("");
       })
       .catch((err) => console.log(err));
   };
@@ -45,7 +47,9 @@ export default function Index() {
       <Header />
       <article>
         <div>
-          <div className={loginStyle.title}>Create New Agent Direct</div>
+          <div className={loginStyle.title}>
+            Upload Audio and Assign To Agent
+          </div>
           <div className={loginStyle.text}>
             if you don’t an account you can <a href="#6">Register here!</a>
           </div>
@@ -56,34 +60,31 @@ export default function Index() {
           className={loginStyle.img}
         />
         <form onSubmit={login}>
-          <div className={loginStyle.inputContainer}>
-            <input
-              type="text"
-              placeholder="Enter Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <img
-              src="static/media/client/X.svg"
-              alt=""
-              className={loginStyle.clearIcon}
-            />
-          </div>
-          <div className={loginStyle.inputContainer}>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Enter Email"
-            />
-            <img
-              src="static/media/X.svg"
-              alt=""
-              className={loginStyle.clearIcon}
-            />
-          </div>
+          <label htmlFor="" for="id">
+            <div className={loginStyle.icon}>
+              <FaLink />
+            </div>
+            <div className="">
+              {audio ? (
+                <div>
+                  {audio?.name?.substring(0, 6)}...
+                  {audio?.name?.slice(-6)}
+                </div>
+              ) : (
+                "Choose audio"
+              )}
+            </div>
+          </label>
+          <input
+            type="file"
+            id="id"
+            className="d-none"
+            onChange={(e) => setAudio(e.target.files[0])}
+          />
+          <div className="text-white"></div>
+          <Dropdown />
 
-          <button type="submit">Submit</button>
+          <button type="submit">Assign audio</button>
         </form>
         <div className={loginStyle.pink}></div>
         <div className={loginStyle.bigPink}></div>
