@@ -12,7 +12,9 @@
 }
 
 .userProfile {
+  z-index: 3;
   padding: #{scaleXL(57.84)} #{scaleXL(40)} #{scaleXL(90)} #{scaleXL(70)};
+  width: #{scaleXL(700)};
   background: $darkGreen;
   border-radius: #{scaleXL(20)};
 
@@ -39,6 +41,22 @@
         color: $semiWhite;
       }
     }
+  }
+
+  .analyzeBtn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: #{scaleXL(60)};
+    padding: #{scaleXL(13)};
+    border-radius: #{scaleXL(10)};
+    text-transform: uppercase;
+    font-size: #{scaleXL(15)};
+    font-family: $inter;
+    font-weight: 600;
+    color: aliceblue;
+    background: rgb(68, 97, 242);
   }
 
   .paragraph {
@@ -117,8 +135,11 @@
 
 .members {
   padding: #{scaleXL(70.84)} #{scaleXL(42)} #{scaleXL(60)} #{scaleXL(40)};
+  height: #{scaleXL(710)};
+  overflow-y: auto;
   background: $darkGreen;
   border-radius: #{scaleXL(20)};
+
   div {
     gap: #{scaleXL(34)};
     .title {
@@ -187,6 +208,7 @@
 
 .pink {
   position: fixed;
+  // z-index: -1;
   top: #{scaleXL(191)};
   left: #{scaleXL(142)};
   height: #{scaleXL(226)};
@@ -197,6 +219,7 @@
 }
 .bigPink {
   position: fixed;
+  // z-index: -1;
   top: #{scaleXL(430)};
   right: #{scaleXL(142)};
   height: #{scaleXL(226)};
@@ -207,6 +230,7 @@
 }
 .blue {
   position: fixed;
+  // z-index: -1;
   top: #{scaleXL(457)};
   left: #{scaleXL(346)};
   height: #{scaleXL(226)};
@@ -217,6 +241,7 @@
 }
 .bigBlue {
   position: fixed;
+  // z-index: -1;
   top: #{scaleXL(257)};
   right: #{scaleXL(346)};
   height: #{scaleXL(226)};

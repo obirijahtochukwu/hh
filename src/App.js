@@ -12,8 +12,8 @@ function App() {
       {/*<Navbar />*/}
       <Routes>
         <Route path="/login" exact element={<Login />} />
+        <Route path="/" exact element={<Dashboard />} />
         <Route path="/create-agent" exact element={<CreateAgentPage />} />
-        <Route path="/dashboard" exact element={<Dashboard />} />
         <Route path="/upload-file" exact element={<UploadAgent />} />
       </Routes>
     </div>

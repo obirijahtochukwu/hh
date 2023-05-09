@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import loginStyle from "./index.module.scss";
-import { Axios } from "axios";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../../layout/Header";
 import { FaLink } from "react-icons/fa";
 import Dropdown from "../../components/dropdown/Index";
 
 export default function UploadAgent() {
+  const [agents, setAgents] = useState([]);
   const [name, setName] = useState("");
   const [audio, setAudio] = useState("");
   const [auth, setAuth] = useState("");
@@ -15,16 +16,17 @@ export default function UploadAgent() {
   console.log(token);
   const login = (e) => {
     e.preventDefault();
-    Axios.post(
-      `http://52.205.252.14/api/upload/`,
-      {
-        // name: name,
-        file: audio,
-      },
-      {
-        headers: { Authorization: `Token ${token}` },
-      }
-    )
+    axios
+      .post(
+        `http://52.205.252.14/api/upload/`,
+        {
+          // name: name,
+          file: audio,
+        },
+        {
+          headers: { Authorization: `Token ${token}` },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         setName("");
@@ -37,6 +39,19 @@ export default function UploadAgent() {
     const auth = localStorage.getItem("token");
     setAuth(auth);
     // return () => setAuth("");
+  }, []);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    axios
+      .get(`http://52.205.252.14/api/agent/list/`, {
+        headers: { Authorization: `Token ${token}` },
+      })
+      .then((res) => {
+        setAgents(res.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   if (!auth) {
@@ -83,7 +98,7 @@ export default function UploadAgent() {
             onChange={(e) => setAudio(e.target.files[0])}
           />
           <div className="text-white"></div>
-          <Dropdown />
+          <Dropdown props={{ data: agents, setData: setAgents }} />
 
           <button type="submit">Assign audio</button>
         </form>

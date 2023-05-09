@@ -4,15 +4,38 @@ import { membersData, pieChartData } from "./mockData";
 import Header from "../../layout/Header";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { DropdownTwo } from "../../components/dropdown/Index";
 
 export default function Dashboard() {
   const [auth, setAuth] = useState("");
   const [agents, setAgents] = useState([]);
+  const [files, setFiles] = useState([]);
+  const [filesName, setFilesName] = useState("");
+  const [viewAgent, setViewAgent] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
 
+  const analyze = () => {
+    axios
+      .post(
+        `http://52.205.252.14/api/agent/create/`,
+        {
+          agent_id: viewAgent?.id,
+          filename: filesName,
+        },
+        {
+          headers: { Authorization: `Token ${token}` },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setFilesName("");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
     axios
       .get(`http://52.205.252.14/api/agent/list/`, {
         headers: { Authorization: `Token ${token}` },
@@ -29,7 +52,16 @@ export default function Dashboard() {
     // return () => setAuth("");
   }, []);
 
-  if (!auth) {
+  useEffect(() => {
+    axios
+      .get(`http://52.205.252.14/api/list/`)
+      .then((res) => {
+        setFiles(res.data.files);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  if (auth) {
     navigate("/login");
   }
 
@@ -40,15 +72,25 @@ export default function Dashboard() {
         <div className="d-flex align-items-center">
           <img src="/client/image 10 (1).svg" alt="" />
           <div className="">
-            <div className={style.title}>Kris Millar</div>
+            <div className={style.title}>
+              {viewAgent.name ? viewAgent.name : "Kris Millar"}
+            </div>
             <div className={style.text}>krissmiller@gmail.com</div>
           </div>
         </div>
-        <div className={style.paragraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          ultrices velit a nulla placerat, vitae accumsan mauris euismod. Nam
-          semper dignissim est a sollicitudin. Vestibulum non ipsum tellus.
-          Vivamus a eros nec sapien vestibulum.
+        <div className="d-flex align-items-end gap-1">
+          <DropdownTwo
+            props={{
+              data: files,
+              setData: setFiles,
+              value: filesName,
+              setValue: setFilesName,
+            }}
+          />
+
+          <div onClick={() => analyze()} className={style.analyzeBtn}>
+            analyze
+          </div>
         </div>
 
         <div className={style.description}>
@@ -62,7 +104,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className={style.charts}>
+        {/* <div className={style.charts}>
           {pieChartData.map(({ num, title }, index) => {
             return (
               <div key={index} className="d-flex flex-column text-center gap-2">
@@ -71,19 +113,20 @@ export default function Dashboard() {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </section>
 
       <article className={style.members}>
         <div className="d-flex align-items-center gap-2">
-          <div className={style.title}>New Agents</div>
+          <div className={style.title}>Agents List</div>
           <div className={style.text}>{agents.length}</div>
         </div>
         <div className={style.member}>
-          {agents.map(({ name, email, agent_id }, index) => {
+          {membersData.map(({ name, category, time }, index) => {
             return (
               <div
                 key={index}
+                onClick={() => setViewAgent({ name, category })}
                 className={`d-flex align-items-center justify-content-between`}
               >
                 <div className="d-flex items-items-center gap-2 align-items-center">
@@ -94,14 +137,14 @@ export default function Dashboard() {
                   />
                   <div>
                     <div className={style.title}>{name}</div>
-                    <div className={style.text}>{email}</div>
+                    <div className={style.text}>{category}</div>
                   </div>
                 </div>
                 <div className="">
                   <div className={`d-flex justify-content-end ${style.title}`}>
                     {"ID"}
                   </div>
-                  <div className={style.text}>{agent_id}</div>
+                  <div className={style.text}>{time}</div>
                 </div>
               </div>
             );

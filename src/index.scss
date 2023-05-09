@@ -27,10 +27,11 @@ button {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background: $gradient;
+  background: #313558;
 }
 ::-webkit-scrollbar-track {
-  background: $white;
+  background: #06121e;
+  border-radius: 0 50px 50px 0;
 }
 
 .cursor {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import loginStyle from "./index.module.scss";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../layout/Header";
 
@@ -13,16 +13,17 @@ export default function Index() {
   console.log(token);
   const login = (e) => {
     e.preventDefault();
-    Axios.post(
-      `http://52.205.252.14/api/agent/create/`,
-      {
-        email: email,
-        name: name,
-      },
-      {
-        headers: { Authorization: `Token ${token}` },
-      }
-    )
+    axios
+      .post(
+        `http://52.205.252.14/api/agent/create/`,
+        {
+          email: email,
+          name: name,
+        },
+        {
+          headers: { Authorization: `Token ${token}` },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         setEmail("");

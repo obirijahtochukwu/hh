@@ -3,9 +3,9 @@ $poppins: "Poppins";
 $inter: "Inter";
 $white: #ffffff;
 $semiWhite: rgb(255, 255, 255, 0.8);
-$darkGreen: #06121e;
+$darkGreen: rgb(6, 18, 30, 0.3);
 $lightGreen: #36dfae;
 
 @function scaleXL($value, $ideal: 1920, $current: 100vw) {
-	@return calc(#{$value} * (#{$current} / #{$ideal}));
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
 }
