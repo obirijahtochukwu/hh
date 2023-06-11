@@ -1,0 +1,100 @@
+@import "../../../../styles/theme.scss";
+
+@function scaleX($value, $ideal: 595, $current: 100vw) {
+  @return calc(#{$value} * (#{$current} / #{$ideal}));
+}
+
+.container {
+  width: 100vw;
+  height: fit-content;
+  padding: #{scaleX(24)};
+  background: white !important;
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    gap: #{scaleX(22)};
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: #{scaleX(24)};
+  font-weight: 900;
+  font-family: $bitter;
+  color: $black;
+  width: #{scaleX(85)};
+  line-height: #{scaleX(30)};
+  text-transform: capitalize;
+}
+
+.text {
+  font-size: #{scaleX(12)};
+  font-weight: 600;
+  font-family: $non;
+  color: #0e6cc2;
+  margin: #{scaleX(4)} 0 #{scaleX(12)} 0;
+}
+
+.desc {
+  font-size: #{scaleX(8)};
+  font-weight: 400;
+  font-family: $non;
+  color: $black;
+  width: #{scaleX(154)};
+  line-height: #{scaleX(12)};
+}
+
+.icon {
+  font-size: #{scaleX(12)};
+  margin-right: #{scaleX(4)};
+}
+
+.contact {
+  font-size: #{scaleX(8)};
+  font-weight: 400;
+  font-family: $non;
+  color: $black;
+  width: #{scaleX(154)};
+  line-height: #{scaleX(14)};
+}
+
+// Experience
+.article {
+  width: #{scaleX(371)};
+  height: fit-content;
+  padding: #{scaleX(16)} #{scaleX(20)};
+  background: #f9f9f9;
+  border-radius: #{scaleX(8)};
+  display: flex;
+  flex-direction: column;
+  gap: #{scaleX(24)};
+}
+
+.blueText {
+  font-size: #{scaleX(9)};
+  font-weight: 600;
+  font-family: $bitter;
+  color: #0e6cc2;
+}
+
+.my {
+  margin: #{scaleX(4)} 0 #{scaleX(9)} 0;
+}
+
+.subTitle {
+  font-size: #{scaleX(12)};
+  font-weight: 700;
+  font-family: $roboto;
+  color: $black;
+}
+
+li {
+  font-size: #{scaleX(9)};
+  font-weight: 400;
+  font-family: $non;
+  color: $black;
+  margin: 0;
+  padding: 0;
+  line-height: #{scaleX(14)};
+}

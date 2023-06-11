@@ -1,0 +1,80 @@
+@import "../../../styles/theme.scss";
+
+.title {
+  @include text700();
+  @include spacingCenter();
+  font-size: 24px;
+  color: var(--black);
+}
+
+.text {
+  @include text400();
+  @include spacingCenter();
+  font-size: 18px;
+  color: var(--black);
+  line-height: 24px;
+  max-width: 380px;
+  margin: 0 auto 100px auto;
+}
+
+.img {
+  // background-image: url("/media/productlist/Frame (1).svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 244px;
+  margin: 50px auto 40px auto;
+}
+
+// Special Offer Compoment's styles.
+.SpecialOfferTitle {
+  @include text700();
+  font-size: #{scaleX(22)};
+  line-height: #{scaleX(24)};
+  color: var(--black);
+}
+
+.SpecialOfferTxt {
+  @include text700();
+  font-size: #{scaleX(16)};
+  line-height: #{scaleX(22)};
+  color: var(--black);
+}
+
+.MostPopularSection {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+  gap: #{scaleX(24)} #{scaleX(16)};
+}
+
+// Footer Compoment's styles.
+.FooterCompoment {
+  @include fixed();
+  height: #{scaleX(90)};
+  background-color: var(--white);
+  box-shadow: 0 0 #{scaleX(100)} #{scaleX(1)} rgb(0, 0, 0, 0.1);
+  @include flexCenterAround();
+
+  .footer {
+    text-decoration: none;
+    width: #{scaleX(58)};
+    color: var(--black);
+
+    .icon {
+      font-size: #{scaleX(20)};
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .name {
+      @include text500();
+      font-size: #{scaleX(10)};
+      line-height: #{scaleX(12)};
+      letter-spacing: #{scaleX(0.2)};
+      text-align: center;
+    }
+  }
+}

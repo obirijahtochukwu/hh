@@ -1,0 +1,135 @@
+@import "../../../styles/theme.scss";
+
+.MostPopularCard {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: #{scaleX(12)};
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.cardImg {
+  @include BgImgContain();
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: #{scaleX(182)};
+  height: #{scaleX(182)};
+  padding: #{scaleX(16)};
+  box-shadow: 0px 7px 4px rgb(0, 0, 0, 0.1);
+  border-radius: #{scaleX(10)};
+}
+.heartIcon {
+  margin: 0 0 0 auto;
+  @include flexCenter();
+  justify-content: center;
+  width: #{scaleX(28)};
+  height: #{scaleX(28)};
+  background-color: var(--black);
+  border-radius: #{scaleX(50)};
+  font-size: #{scaleX(15)};
+  color: var(--white);
+}
+
+.cardTitle {
+  @include text700();
+  font-size: #{scaleX(18)};
+  line-height: #{scaleX(22)};
+  color: var(--black);
+}
+
+.cardFooter {
+  @include flexCenter();
+  gap: #{scaleX(8)};
+}
+.cardIcon {
+  font-size: #{scaleX(15)};
+}
+
+.ratings {
+  @include text500();
+  font-size: #{scaleX(14)};
+  line-height: #{scaleX(22)};
+  color: var(--black);
+  letter-spacing: #{scaleX(0.2)};
+}
+
+.cardBar {
+  background-color: var(--transparent);
+  width: #{scaleX(4)};
+  height: #{scaleX(20)};
+  border-radius: #{scaleX(22)};
+}
+
+.sold {
+  padding: #{scaleX(6)} #{scaleX(10)};
+  background: var(--transparent);
+  border-radius: #{scaleX(6)};
+  width: fit-content;
+
+  @include text400();
+  font-size: #{scaleX(10)};
+  line-height: #{scaleX(12)};
+  color: var(--black);
+  letter-spacing: #{scaleX(0.2)};
+}
+
+.price {
+  @include text700();
+  font-size: #{scaleX(18)};
+  line-height: #{scaleX(22)};
+  color: var(--black);
+  letter-spacing: #{scaleX(0.2)};
+}
+
+@media (min-width: 700px) {
+  .MostPopularCard {
+    gap: #{scaleX(0)};
+  }
+  .cardImg {
+    width: #{scaleX(90)};
+    height: #{scaleX(70)};
+    padding: #{scaleX(5)};
+    border-radius: #{scaleX(5)};
+  }
+  .heartIcon {
+    width: #{scaleX(14)};
+    height: #{scaleX(14)};
+    font-size: #{scaleX(5)};
+  }
+
+  .cardTitle {
+    font-size: #{scaleX(7)};
+    line-height: #{scaleX(14)};
+  }
+
+  .cardFooter {
+    gap: #{scaleX(5)};
+  }
+  .cardIcon {
+    font-size: #{scaleX(5)};
+  }
+
+  .ratings {
+    font-size: #{scaleX(5)};
+    line-height: #{scaleX(0)};
+  }
+
+  .cardBar {
+    width: #{scaleX(0.5)};
+    height: #{scaleX(7)};
+  }
+
+  .sold {
+    padding: #{scaleX(2)} #{scaleX(3)};
+    border-radius: #{scaleX(3)};
+
+    font-size: #{scaleX(4)};
+  }
+  .price {
+    font-size: #{scaleX(6)};
+    line-height: #{scaleX(12)};
+  }
+}

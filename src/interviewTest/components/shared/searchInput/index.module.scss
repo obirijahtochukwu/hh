@@ -1,0 +1,64 @@
+@import "../../../styles/theme.scss";
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px #{scaleX(20)};
+  margin: #{scaleX(24)} 0;
+  gap: #{scaleX(12)};
+  width: #{scaleX(380)};
+  height: #{scaleX(56)};
+  background: var(--gray);
+  border-radius: #{scaleX(12)};
+
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: transparent;
+
+    // TEXT DESIGN
+    @include text400();
+    font-size: #{scaleX(14)};
+    line-height: #{scaleX(20)};
+    letter-spacing: #{scaleX(0.2)};
+    color: var(--grey);
+  }
+}
+
+.searchImg {
+  @include BgImgContain();
+  width: #{scaleX(20)};
+  height: #{scaleX(20)};
+}
+
+.filterImg {
+  @include BgImgContain();
+  width: #{scaleX(18)};
+  height: #{scaleX(18)};
+}
+
+@media (min-width: 700px) {
+  .inputContainer {
+    padding: 0px #{scaleX(8)};
+    margin: #{scaleX(10)} 0;
+    gap: #{scaleX(5)};
+    height: #{scaleX(20)};
+    border-radius: #{scaleX(3)};
+
+    input {
+      font-size: #{scaleX(6)};
+    }
+  }
+
+  .searchImg {
+    width: #{scaleX(10)};
+    height: #{scaleX(10)};
+  }
+
+  .filterImg {
+    width: #{scaleX(12)};
+    height: #{scaleX(12)};
+  }
+}

@@ -1,0 +1,56 @@
+@import "../../../styles/theme.scss";
+
+.header {
+  @include flexCenterBetween();
+  margin: #{scaleX(1-0.5)} 0;
+}
+
+.container {
+  @include flexCenter();
+  gap: #{scaleX(20.67)};
+}
+
+.title {
+  @include text700();
+  font-size: #{scaleX(24)};
+  color: var(--black);
+}
+
+.icon {
+  color: var(--black);
+  cursor: pointer;
+  font-size: #{scaleX(20.81)};
+}
+
+.searchIcon {
+  color: var(--black);
+  font-size: #{scaleX(20.81)};
+}
+
+@media (min-width: 700px) {
+  .header {
+    @include flexCenterBetween();
+    margin: #{scaleX(10.5)} 0;
+  }
+
+  .container {
+    @include flexCenter();
+    gap: #{scaleX(5.67)};
+  }
+
+  .title {
+    @include text700();
+    font-size: #{scaleX(15)};
+    color: var(--black);
+  }
+
+  .icon {
+    color: var(--black);
+    font-size: #{scaleX(10)};
+  }
+
+  .searchIcon {
+    color: var(--black);
+    font-size: #{scaleX(10.81)};
+  }
+}
