@@ -12,9 +12,9 @@ $lightBlue: #28dfd9;
 $grey: #dadada;
 $transparent: #51f1b81a;
 
-.rec-slider-container {
-  padding: 0px 0px !important;
-  margin: 0px 60px !important;
+.rec.rec-slider-container {
+  padding: 0px !important;
+  margin: 0;
 }
 
 @font-face {
