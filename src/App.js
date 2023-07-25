@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductDetail from "./interviewTest/pages/productDetail/Index";
+import "./clientApp/styles/theme.scss";
 import { useEffect } from "react";
 import { useGlobalContext } from "./context";
 import axios from "axios";

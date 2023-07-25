@@ -189,7 +189,8 @@
 
 .products {
   display: flex;
-  gap: #{scaleXL(30)};
+  // gap: #{scaleXL(30)};
+  padding: 0px;
 }
 
 .header {

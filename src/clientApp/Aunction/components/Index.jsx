@@ -171,6 +171,7 @@ export const RelatedProductsComponent = ({}) => {
 
       <main className={styles.products}>
         <ReactElasticCarousel
+          itemPadding={[0]}
           ref={ref}
           showArrows={false}
           disableArrowsOnEnd={false}

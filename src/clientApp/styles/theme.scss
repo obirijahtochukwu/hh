@@ -12,6 +12,11 @@ $lightBlue: #28dfd9;
 $grey: #dadada;
 $transparent: #51f1b81a;
 
+.rec-slider-container {
+  padding: 0px 0px !important;
+  margin: 0px 60px !important;
+}
+
 @font-face {
   font-family: "Be Vietnam Pro";
   src: url("../../../public/fonts/BeVietnamPro-Regular.ttf");
