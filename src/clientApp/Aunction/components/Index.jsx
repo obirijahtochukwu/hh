@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./index.module.scss";
+import ReactElasticCarousel from "react-elastic-carousel";
 
 //   interface Types {
 //     y: any
@@ -130,6 +131,25 @@ export const RelatedProductsComponent = ({}) => {
     },
   ];
 
+  const ref = React.useRef(null);
+
+  const next = (currentItem, nextItem) => {
+    if (currentItem.index === nextItem.index) {
+      ref.current.goTo(0);
+    }
+  };
+  const prev = (currentItem, nextItem) => {
+    if (currentItem.index === nextItem.index) {
+      ref.current.goTo(products.length);
+    }
+  };
+  const breakPoints = [
+    { width: 1, itemsToShow: 2 },
+    { width: 550, itemsToShow: 3 },
+    { width: 768, itemsToShow: 4 },
+    { width: 1200, itemsToShow: 3 },
+  ];
+
   return (
     <div className={styles.RelatedProductsComponent}>
       <div className={styles.header}>
@@ -138,28 +158,51 @@ export const RelatedProductsComponent = ({}) => {
         <img
           src="/media/auction/Group 70482.svg"
           alt=""
+          onClick={() => ref.current.slidePrev()}
           style={{ marginLeft: "auto", cursor: "pointer" }}
         />
         <img
           src="/media/auction/Group 70482.svg"
           alt=""
+          onClick={() => ref.current.slideNext()}
           style={{ transform: "rotate(180deg)", cursor: "pointer" }}
         />
       </div>
 
       <main className={styles.products}>
-        {products.map(({ name, img, price, time }) => {
-          return (
-            <div
-              style={{ backgroundImage: `url('${img}')` }}
-              className={styles.product}
-            >
-              <div className={styles.productTime}>{time}</div>
-              <div className={styles.productName}>{name}</div>
-              <div className={styles.productPrice}>{price}</div>
-            </div>
-          );
-        })}
+        <ReactElasticCarousel
+          ref={ref}
+          showArrows={false}
+          disableArrowsOnEnd={false}
+          onNextStart={next}
+          onPrevEnd={prev}
+          breakPoints={breakPoints}
+        >
+          {products.map(({ name, img, price, time }) => {
+            return (
+              <div
+                style={{ backgroundImage: `url('${img}')` }}
+                className={styles.product}
+              >
+                <div className={styles.productTime}>{time}</div>
+                <div className={styles.productName}>{name}</div>
+                <div className={styles.productPrice}>{price}</div>
+              </div>
+            );
+          })}
+          {products.map(({ name, img, price, time }) => {
+            return (
+              <div
+                style={{ backgroundImage: `url('${img}')` }}
+                className={styles.product}
+              >
+                <div className={styles.productTime}>{time}</div>
+                <div className={styles.productName}>{name}</div>
+                <div className={styles.productPrice}>{price}</div>
+              </div>
+            );
+          })}
+        </ReactElasticCarousel>
       </main>
     </div>
   );

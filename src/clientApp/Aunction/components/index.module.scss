@@ -204,7 +204,7 @@
 .product {
   @include BgImgContain();
   background-size: #{scaleXL(400)}, #{scaleXL(358)} !important;
-  width: #{scaleXL(358)};
+  width: #{scaleXL(308)};
   height: #{scaleXL(409)};
   display: flex;
   flex-direction: column;
