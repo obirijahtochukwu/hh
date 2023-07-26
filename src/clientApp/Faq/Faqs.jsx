@@ -9,7 +9,10 @@ export const Faqs = () => {
   const props = { showFaq, setShowFaq, faqs };
   return (
     <Layout>
+      {/* <img src="/media/auction/Group 70484.svg" className={styles.blur1} /> */}
+
       <main>
+        <div className={styles.blur1}></div>
         <div className={styles.title}>Frequently Asked Questions</div>
         <div className={styles.text}>
           The key to creating an effective FAQ page is to anticipate the

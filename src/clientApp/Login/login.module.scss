@@ -64,7 +64,7 @@
 
 .barTitle {
   font-size: #{scaleXL(24)};
-  font-family: $inter;
+  font-family: $viet;
   font-weight: 500;
   text-align: center;
   line-height: 0px;
@@ -88,15 +88,18 @@
   padding: 0 #{scaleXL(20)};
   border-radius: #{scaleXL(8)};
   backdrop-filter: blur(#{scaleXL(45)});
-
-  font-size: #{scaleXL(20)};
-  font-family: $inter;
-  font-weight: 500;
 }
 
 .btnLogo {
   height: #{scaleXL(30)};
   width: #{scaleXL(30)};
+}
+
+.btnText {
+  font-size: #{scaleXL(20)};
+  font-family: $viet;
+  font-weight: 500;
+  opacity: 0.8999999761581421;
 }
 
 .btnIcon {

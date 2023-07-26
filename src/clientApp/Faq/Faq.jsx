@@ -52,7 +52,10 @@ export const Faq = ({ title, description, showFaq, setShowFaq }) => {
 
       <div
         ref={ref}
-        style={{ height: showFaq === title ? `${height}px` : "0px" }}
+        style={{
+          height: showFaq === title ? `${height}px` : "0px",
+          paddingTop: showFaq === title ? "" : "0px",
+        }}
         className={styles.description}
       >
         <img

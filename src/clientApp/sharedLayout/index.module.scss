@@ -11,31 +11,31 @@
   color: $white;
 }
 
-// .blur1 {
-//   position: absolute;
-//   content: "";
-//   top: #{scaleXL(39)};
-//   left: #{scaleXL(-51)};
-//   width: #{scaleXL(459)};
-//   height: #{scaleXL(512)};
-//   background: #5724c3;
-//   filter: blur(400px);
-//   border-radius: #{scaleXL(512)};
-// }
+.blur1 {
+  position: fixed;
+  content: "";
+  top: #{scaleXL(39)};
+  left: #{scaleXL(-51)};
+  width: #{scaleXL(459)};
+  height: #{scaleXL(512)};
+  background: #5724c3;
+  filter: blur(#{scaleXL(450)});
+  border-radius: #{scaleXL(512)};
+}
 
-// .container::before {
-//   position: absolute;
-//   content: "";
-//   bottom: #{scaleXL(346)};
-//   right: #{scaleXL(-51)};
-//   width: #{scaleXL(459)};
-//   height: #{scaleXL(512)};
-//   margin-top: #{scaleXL(100)};
-//   background: #a716aa;
-//   filter: blur(400px);
-//   z-index: 0;
-//   border-radius: #{scaleXL(512)};
-// }
+.container::before {
+  position: fixed;
+  content: "";
+  bottom: #{scaleXL(0)};
+  right: #{scaleXL(-51)};
+  width: #{scaleXL(459)};
+  height: #{scaleXL(512)};
+  margin-top: #{scaleXL(100)};
+  background: #a716aa;
+  filter: blur(#{scaleXL(450)});
+  z-index: 0;
+  border-radius: #{scaleXL(512)};
+}
 
 .flex {
   width: 100%;
