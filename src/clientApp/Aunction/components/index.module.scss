@@ -15,10 +15,6 @@
   width: #{scaleXL(695)};
   height: #{scaleXL(744)};
   border-radius: #{scaleXL(30)};
-
-  @media (max-width: 1000px) {
-    width: 300px;
-  }
 }
 
 .aside {
@@ -237,4 +233,106 @@
   font-size: #{scaleXL(22)};
   color: $white;
   padding: 0 0 #{scaleXL(13)} #{scaleXL(13)};
+}
+
+@media (max-width: 768px) {
+  .UserDetailsComponent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userImg {
+    width: 100%;
+    height: #{scaleXL(530)};
+    border-radius: #{scaleXL(30)};
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    gap: #{scaleXL(60)};
+  }
+
+  .text {
+    max-width: 100%;
+  }
+
+  .details {
+    flex-direction: column;
+    height: #{scaleXL(696)};
+    max-width: #{scaleXL(530)};
+    margin: 0 auto;
+    gap: #{scaleXL(30)};
+  }
+
+  .barImg {
+    width: 100%;
+    height: 1px;
+    border-right: none;
+    border-bottom: 1px dashed #14504e;
+  }
+
+  // RelatedProductsComponent
+  .product {
+    @include BgImgContain();
+    background-size: #{scaleXL(400)}, #{scaleXL(358)} !important;
+    width: #{scaleXL(358)};
+    height: #{scaleXL(409)};
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #5724c3;
+    overflow: hidden;
+    border-radius: #{scaleXL(14.7)};
+  }
+
+  .header {
+    @include flexCenter();
+    gap: #{scaleXL(20)};
+
+    @include text600();
+    font-size: #{scaleXL(32)};
+    color: $white;
+
+    img {
+      height: #{scaleXL(50)};
+      width: #{scaleXL(50)};
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .UserDetailsComponent {
+    // @include flexCenter();
+    display: grid;
+    grid-template-columns: 30% 60%;
+    padding: 0 #{scaleXL(40)};
+    width: 100%;
+    gap: #{scaleXL(80)};
+    margin: #{scaleXL(150)} auto;
+  }
+
+  .userImg {
+    width: 100%;
+    height: auto;
+    border-radius: #{scaleXL(30)};
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    gap: #{scaleXL(60)};
+  }
+
+  // RelatedProductsComponent
+  .product {
+    @include BgImgContain();
+    background-size: #{scaleXL(400)}, #{scaleXL(358)} !important;
+    width: #{scaleXL(358)};
+    height: #{scaleXL(409)};
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #5724c3;
+    overflow: hidden;
+    border-radius: #{scaleXL(14.7)};
+  }
 }

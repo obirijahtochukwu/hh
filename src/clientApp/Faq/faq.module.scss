@@ -16,7 +16,8 @@
   text-align: center;
   line-height: #{scaleXL(32)};
   margin: 0 auto #{scaleXL(60)} auto;
-  width: #{scaleXL(831)};
+  width: 100%;
+  max-width: #{scaleXL(831)};
 }
 
 .faqs {
@@ -35,6 +36,11 @@
   border-radius: #{scaleXL(8)};
   width: 100%;
   padding: #{scaleXL(24)} #{scaleXL(30)} #{scaleXL(24)} #{scaleXL(25)};
+
+  @media (max-width: 800px) {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+  }
 }
 .faq.show {
   background: #191438 !important;

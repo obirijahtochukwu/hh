@@ -19,7 +19,7 @@
   border-radius: #{scaleXL(20)};
   border: #{scaleXL(2)} solid $lightWhite;
   background: $transparent;
-  backdrop-filter: blur(#{scaleXL(20)});
+  backdrop-filter: blur(20px);
   color: white !important;
 }
 
@@ -33,6 +33,7 @@
 
 .title {
   font-size: #{scaleXL(42)};
+  color: $white;
   font-family: $viet;
   font-weight: 600;
   text-align: center;
@@ -40,6 +41,7 @@
 
 .text {
   font-size: #{scaleXL(18)};
+  color: $white;
   font-family: $viet;
   font-weight: 400;
   text-align: center;
@@ -63,6 +65,8 @@
 }
 
 .barTitle {
+  color: $white;
+
   font-size: #{scaleXL(24)};
   font-family: $viet;
   font-weight: 500;
@@ -106,4 +110,33 @@
   height: #{scaleXL(24)};
   width: #{scaleXL(24)};
   margin-left: auto;
+}
+
+@media (max-width: 620px) {
+  .container {
+    padding: 20vh 5vw;
+  }
+
+  .loginBox {
+    width: 100%;
+    padding: #{scaleXL(159)} #{scaleXL(40)} #{scaleXL(40)} #{scaleXL(40)};
+  }
+
+  .logo {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .barImg {
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .btnLogo {
+    height: #{scaleXL(30)};
+    width: #{scaleXL(30)};
+  }
 }
