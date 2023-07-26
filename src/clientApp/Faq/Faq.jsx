@@ -21,7 +21,12 @@ export const Faq = ({ title, description, showFaq, setShowFaq }) => {
 
   return (
     <main className={`${styles.faq} ${showFaq === title ? styles.show : ""}`}>
-      <div className="d-flex justify-content-between align-items-center">
+      <div
+        onClick={() => {
+          showFaq !== title ? setShowFaq(title) : setShowFaq("");
+        }}
+        className="d-flex justify-content-between align-items-center"
+      >
         <div
           className={`${styles.faqTitle} ${
             showFaq === title ? styles.show : ""
